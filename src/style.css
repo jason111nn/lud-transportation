@@ -1,0 +1,24 @@
+@import "tailwindcss";
+
+/* 在這裡定義你的自定義變數，v4 會自動生成對應的 utility class */
+@theme {
+  --color-morandi-bg: #F5F5DC;
+  --color-morandi-blue: #A7B1B5;
+  --color-morandi-gold: #B6A48D;
+  --color-morandi-sand: #DBD5CE;
+  --color-morandi-pink: #BDAEAD;
+  --color-morandi-dark: #4A4A4A;
+
+  /* 設定海報專用間距 */
+  --spacing-p-side: 45cm;
+  --spacing-p-main: 95cm;
+  --spacing-h-total: 120cm;
+}
+
+/* 確保基礎設定正確 */
+@layer base {
+  html, body {
+    @apply m-0 p-0;
+    background-color: var(--color-morandi-bg);
+  }
+}
