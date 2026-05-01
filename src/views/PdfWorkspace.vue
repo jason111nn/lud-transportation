@@ -103,7 +103,7 @@
                   class="w-full h-auto min-h-[200mm] bg-[#EADCC6] border-[3mm] border-[#D1C4B2] rounded-b-[15mm] rounded-tr-[15mm] flex items-center justify-center relative overflow-hidden anim-img">
                   <span
                     class="absolute text-[40pt] text-[#4A677D] font-bold z-0">/img/<br />behavior_analysis.png</span>
-                  <img :src="'/img/behavior_analysis.png'"
+                  <img :src="`${baseUrl}img/behavior_analysis.png`"
                     class="relative w-full h-auto object-contain z-10 transition-opacity duration-300"
                     style="opacity: 0;" onload="this.style.opacity='1'" onerror="this.style.opacity='0'"
                     alt="歷年交通事故統計圖">
@@ -147,7 +147,7 @@
                     <div
                       class="w-full h-auto min-h-[150mm] bg-[#EADCC6] border-[3mm] border-[#D1C4B2] rounded-b-[15mm] rounded-tr-[15mm] flex items-center justify-center relative overflow-hidden anim-img shadow-sm">
                       <span class="absolute text-[40pt] text-[#4A677D] font-bold z-0">/img/system_arch.png</span>
-                      <img :src="'/img/system_arch.png'"
+                      <img :src="`${baseUrl}img/system_arch.png`"
                         class="relative w-full h-auto object-contain z-10 transition-opacity duration-300"
                         style="opacity: 0;" onload="this.style.opacity='1'" onerror="this.style.opacity='0'" alt="系統架構">
                     </div>
@@ -182,7 +182,7 @@
                     <div
                       class="w-full h-[150mm] bg-white border-[3mm] border-[#D1C4B2] rounded-[10mm] flex items-center justify-center overflow-hidden relative shadow-sm">
                       <span class="text-[30pt] text-[#8C7355] font-bold text-center">circuit_design.png</span>
-                      <img :src="'/img/circuit_design.png'"
+                      <img :src="`${baseUrl}img/circuit_design.png`"
                         class="absolute inset-0 w-full h-full object-cover z-10 transition-opacity duration-300"
                         style="opacity: 0;" onload="this.style.opacity='1'" onerror="this.style.opacity='0'" alt="設計電路">
                     </div>
@@ -199,7 +199,7 @@
                     <div
                       class="w-full h-[150mm] bg-white border-[3mm] border-[#D1C4B2] rounded-[10mm] flex items-center justify-center overflow-hidden relative">
                       <span class="text-[30pt] text-[#4A677D] font-bold text-center">arduino_code.png</span>
-                      <img :src="'/img/arduino_code.png'"
+                      <img :src="`${baseUrl}img/arduino_code.png`"
                         class="absolute inset-0 w-full h-full object-cover z-10 transition-opacity duration-300"
                         style="opacity: 0;" onload="this.style.opacity='1'" onerror="this.style.opacity='0'"
                         alt="Arduino">
@@ -217,7 +217,7 @@
                     <div
                       class="w-full h-[150mm] bg-white border-[3mm] border-[#D1C4B2] rounded-[10mm] flex items-center justify-center overflow-hidden relative">
                       <span class="text-[30pt] text-[#8C7355] font-bold text-center">breadboard.png</span>
-                      <img :src="'/img/breadboard.png'"
+                      <img :src="`${baseUrl}img/breadboard.png`"
                         class="absolute inset-0 w-full h-full object-cover z-10 transition-opacity duration-300"
                         style="opacity: 0;" onload="this.style.opacity='1'" onerror="this.style.opacity='0'" alt="麵包板">
                     </div>
@@ -282,7 +282,7 @@
                       <div class="flex-1 relative flex items-center justify-center anim-img bg-[#EADCC6] min-h-[50mm]">
                         <span
                           class="absolute text-[25pt] text-[#4A677D] font-bold text-center z-0">/img/<br />packet_5byte.png</span>
-                        <img :src="'/img/packet_5byte.png'"
+                        <img :src="`${baseUrl}img/packet_5byte.png`"
                           class="absolute inset-0 w-full h-full object-contain z-10 transition-opacity duration-300"
                           style="opacity: 0;" onload="this.style.opacity='1'" onerror="this.style.opacity='0'"
                           alt="5-Byte">
@@ -329,7 +329,7 @@
                         class="w-full h-auto min-h-[200mm] flex items-center justify-center relative overflow-hidden anim-img bg-[#EADCC6]">
                         <span
                           class="absolute text-[25pt] text-[#4A677D] font-bold text-center z-0">/img/<br />app_mockup.png</span>
-                        <img :src="'/img/app_mockup.png'"
+                        <img :src="`${baseUrl}img/app_mockup.png`"
                           class="relative w-full h-auto object-contain z-10 transition-opacity duration-300"
                           style="opacity: 0;" onload="this.style.opacity='1'" onerror="this.style.opacity='0'"
                           alt="App 介面">
@@ -394,7 +394,7 @@
                     <div
                       class="w-full h-[150mm] bg-white border-[3mm] border-[#D1C4B2] rounded-[10mm] flex items-center justify-center overflow-hidden relative shadow-sm">
                       <span class="text-[30pt] text-[#4A677D] font-bold text-center">android_dev.png</span>
-                      <img :src="'/img/android_dev.png'"
+                      <img :src="`${baseUrl}img/android_dev.png`"
                         class="absolute inset-0 w-full h-full object-cover z-10 transition-opacity duration-300"
                         style="opacity: 0;" onload="this.style.opacity='1'" onerror="this.style.opacity='0'"
                         alt="App Dev">
@@ -412,7 +412,7 @@
                     <div
                       class="w-full h-[150mm] bg-white border-[3mm] border-[#D1C4B2] rounded-[10mm] flex items-center justify-center overflow-hidden relative shadow-sm">
                       <span class="text-[30pt] text-[#8C7355] font-bold text-center">3d_print.png</span>
-                      <img :src="'/img/3d_print.png'"
+                      <img :src="`${baseUrl}img/3d_print.png`"
                         class="absolute inset-0 w-full h-full object-cover z-10 transition-opacity duration-300"
                         style="opacity: 0;" onload="this.style.opacity='1'" onerror="this.style.opacity='0'"
                         alt="3D 列印">
@@ -427,7 +427,7 @@
                       class="h-[220mm] w-auto min-w-[200mm] bg-white border-[4mm] border-[#333333] rounded-[10mm] flex items-center justify-center overflow-hidden relative shadow-sm">
                       <span
                         class="absolute text-[30pt] text-[#4A677D] font-bold text-center z-0">/img/<br />final_model.png</span>
-                      <img :src="'/img/final_model.png'"
+                      <img :src="`${baseUrl}img/final_model.png`"
                         class="relative h-full w-auto object-contain z-10 transition-opacity duration-300"
                         style="opacity: 0;" onload="this.style.opacity='1'" onerror="this.style.opacity='0'"
                         alt="模型完工照">
@@ -502,7 +502,7 @@
                     class="w-full min-h-[150mm] bg-[#EADCC6] border-[3mm] border-[#D1C4B2] rounded-b-[15mm] rounded-tr-[15mm] flex items-center justify-center relative overflow-hidden anim-img shadow-sm">
                     <span
                       class="absolute text-[40pt] text-[#8C7355] font-bold text-center z-0">/img/<br />data_structure.png</span>
-                    <img :src="'/img/data_structure.png'"
+                    <img :src="`${baseUrl}img/data_structure.png`"
                       class="relative w-full h-auto object-contain z-10 transition-opacity duration-300"
                       style="opacity: 0;" onload="this.style.opacity='1'" onerror="this.style.opacity='0'" alt="資料結構升級">
                   </div>
@@ -517,7 +517,7 @@
                     class="w-full min-h-[150mm] bg-[#EADCC6] border-[3mm] border-[#D1C4B2] rounded-b-[15mm] rounded-tr-[15mm] flex items-center justify-center relative overflow-hidden anim-img shadow-sm">
                     <span
                       class="absolute text-[40pt] text-[#4A677D] font-bold text-center z-0">/img/<br />v2i_concept.png</span>
-                    <img :src="'/img/v2i_concept.png'"
+                    <img :src="`${baseUrl}img/v2i_concept.png`"
                       class="relative w-full h-auto object-contain z-10 transition-opacity duration-300"
                       style="opacity: 0;" onload="this.style.opacity='1'" onerror="this.style.opacity='0'" alt="車路協同概念">
                   </div>
@@ -565,6 +565,7 @@ import { useRoute } from 'vue-router'
 
 const route = useRoute()
 const exportPanel = ref('all') // 'all', 'panel-1', 'panel-2', 'panel-3', 'panel-4'
+const baseUrl = import.meta.env.BASE_URL
 
 onMounted(() => {
   // Check URL parameter directly
