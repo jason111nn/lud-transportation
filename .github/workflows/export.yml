@@ -1,26 +1,21 @@
-name: LUD Project Environment Check
+name: Deploy LUD to GitHub Pages
 
 on:
   push:
-    branches: [ main ]
-  workflow_dispatch:
+    branches: [main]
 
 jobs:
-  check-environment:
+  deploy:
     runs-on: ubuntu-latest
-
     steps:
-    - name: 檢出專案代碼
-      uses: actions/checkout@v4
-
-    - name: 設定 Node.js 環境
-      uses: actions/setup-node@v4
-      with:
-        node-version: '20'
-        cache: 'npm'
-
-    - name: 安裝依賴
-      run: npm install
-
-    - name: 執行專案打包測試
-      run: npm run build
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - run: npm install
+      - run: npm run build
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dist
