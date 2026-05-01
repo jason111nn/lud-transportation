@@ -11,7 +11,7 @@
           <i class="fa-solid fa-arrow-left"></i> 返回
         </router-link>
         <span class="text-gray-500">|</span>
-        <h2 class="font-bold tracking-widest text-[#4A677D]">LHD POSTER WORKSPACE - HIGH PRECISION</h2>
+        <h2 class="font-bold tracking-widest text-[#4A677D]">Low Head UP DISPLAY</h2>
       </div>
       <div class="flex items-center gap-4">
         <a href="./poster.pdf" download="poster.pdf"
