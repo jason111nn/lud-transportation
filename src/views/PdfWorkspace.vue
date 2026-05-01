@@ -27,7 +27,9 @@
       <div
         :style="exportPanel === 'all' ? { width: `${2806 * zoomScale * 0.1}mm`, height: `${1206 * zoomScale * 0.1}mm`, position: 'relative' } : ''">
 
-        <div id="poster-canvas" class="box-border font-sans transition-transform duration-300 ease-out"
+        <div id="poster-canvas" 
+          class="box-border font-sans transition-transform duration-300 ease-out"
+          style="will-change: transform; backface-visibility: hidden;"
           :class="exportPanel !== 'all' ? 'scale-100' : 'absolute top-0 left-0 origin-top-left'"
           :style="exportPanel === 'all' ? { transform: `scale(${zoomScale * 0.1})` } : {}">
 
@@ -105,7 +107,7 @@
                     class="absolute text-[40pt] text-[#4A677D] font-bold z-0">/img/<br />behavior_analysis.png</span>
                   <img :src="`${baseUrl}img/behavior_analysis.png`"
                     class="relative w-full h-auto object-contain z-10 transition-opacity duration-300"
-                    style="opacity: 0;" onload="this.style.opacity='1'" onerror="this.style.opacity='0'"
+                    style="opacity: 0; image-rendering: -webkit-optimize-contrast;" onload="this.style.opacity='1'" onerror="this.style.opacity='0'"
                     alt="歷年交通事故統計圖">
                 </div>
               </div>
@@ -149,7 +151,7 @@
                       <span class="absolute text-[40pt] text-[#4A677D] font-bold z-0">/img/system_arch.png</span>
                       <img :src="`${baseUrl}img/system_arch.png`"
                         class="relative w-full h-auto object-contain z-10 transition-opacity duration-300"
-                        style="opacity: 0;" onload="this.style.opacity='1'" onerror="this.style.opacity='0'" alt="系統架構">
+                        style="opacity: 0; image-rendering: -webkit-optimize-contrast;" onload="this.style.opacity='1'" onerror="this.style.opacity='0'" alt="系統架構">
                     </div>
                   </div>
                 </div>
@@ -184,7 +186,7 @@
                       <span class="text-[30pt] text-[#8C7355] font-bold text-center">circuit_design.png</span>
                       <img :src="`${baseUrl}img/circuit_design.png`"
                         class="absolute inset-0 w-full h-full object-cover z-10 transition-opacity duration-300"
-                        style="opacity: 0;" onload="this.style.opacity='1'" onerror="this.style.opacity='0'" alt="設計電路">
+                        style="opacity: 0; image-rendering: -webkit-optimize-contrast;" onload="this.style.opacity='1'" onerror="this.style.opacity='0'" alt="設計電路">
                     </div>
                   </div>
 
@@ -201,7 +203,7 @@
                       <span class="text-[30pt] text-[#4A677D] font-bold text-center">arduino_code.png</span>
                       <img :src="`${baseUrl}img/arduino_code.png`"
                         class="absolute inset-0 w-full h-full object-cover z-10 transition-opacity duration-300"
-                        style="opacity: 0;" onload="this.style.opacity='1'" onerror="this.style.opacity='0'"
+                        style="opacity: 0; image-rendering: -webkit-optimize-contrast;" onload="this.style.opacity='1'" onerror="this.style.opacity='0'"
                         alt="Arduino">
                     </div>
                   </div>
@@ -219,7 +221,7 @@
                       <span class="text-[30pt] text-[#8C7355] font-bold text-center">breadboard.png</span>
                       <img :src="`${baseUrl}img/breadboard.png`"
                         class="absolute inset-0 w-full h-full object-cover z-10 transition-opacity duration-300"
-                        style="opacity: 0;" onload="this.style.opacity='1'" onerror="this.style.opacity='0'" alt="麵包板">
+                        style="opacity: 0; image-rendering: -webkit-optimize-contrast;" onload="this.style.opacity='1'" onerror="this.style.opacity='0'" alt="麵包板">
                     </div>
                   </div>
 
@@ -284,7 +286,7 @@
                           class="absolute text-[25pt] text-[#4A677D] font-bold text-center z-0">/img/<br />packet_5byte.png</span>
                         <img :src="`${baseUrl}img/packet_5byte.png`"
                           class="absolute inset-0 w-full h-full object-contain z-10 transition-opacity duration-300"
-                          style="opacity: 0;" onload="this.style.opacity='1'" onerror="this.style.opacity='0'"
+                          style="opacity: 0; image-rendering: -webkit-optimize-contrast;" onload="this.style.opacity='1'" onerror="this.style.opacity='0'"
                           alt="5-Byte">
                       </div>
                       <div class="p-[10mm] flex flex-col justify-around gap-[5mm] text-[#333333] bg-white shrink-0">
@@ -331,7 +333,7 @@
                           class="absolute text-[25pt] text-[#4A677D] font-bold text-center z-0">/img/<br />app_mockup.png</span>
                         <img :src="`${baseUrl}img/app_mockup.png`"
                           class="relative w-full h-auto object-contain z-10 transition-opacity duration-300"
-                          style="opacity: 0;" onload="this.style.opacity='1'" onerror="this.style.opacity='0'"
+                          style="opacity: 0; image-rendering: -webkit-optimize-contrast;" onload="this.style.opacity='1'" onerror="this.style.opacity='0'"
                           alt="App 介面">
                       </div>
                     </div>
@@ -396,7 +398,7 @@
                       <span class="text-[30pt] text-[#4A677D] font-bold text-center">android_dev.png</span>
                       <img :src="`${baseUrl}img/android_dev.png`"
                         class="absolute inset-0 w-full h-full object-cover z-10 transition-opacity duration-300"
-                        style="opacity: 0;" onload="this.style.opacity='1'" onerror="this.style.opacity='0'"
+                        style="opacity: 0; image-rendering: -webkit-optimize-contrast;" onload="this.style.opacity='1'" onerror="this.style.opacity='0'"
                         alt="App Dev">
                     </div>
                   </div>
@@ -414,7 +416,7 @@
                       <span class="text-[30pt] text-[#8C7355] font-bold text-center">3d_print.png</span>
                       <img :src="`${baseUrl}img/3d_print.png`"
                         class="absolute inset-0 w-full h-full object-cover z-10 transition-opacity duration-300"
-                        style="opacity: 0;" onload="this.style.opacity='1'" onerror="this.style.opacity='0'"
+                        style="opacity: 0; image-rendering: -webkit-optimize-contrast;" onload="this.style.opacity='1'" onerror="this.style.opacity='0'"
                         alt="3D 列印">
                     </div>
                   </div>
@@ -429,7 +431,7 @@
                         class="absolute text-[30pt] text-[#4A677D] font-bold text-center z-0">/img/<br />final_model.png</span>
                       <img :src="`${baseUrl}img/final_model.png`"
                         class="relative h-full w-auto object-contain z-10 transition-opacity duration-300"
-                        style="opacity: 0;" onload="this.style.opacity='1'" onerror="this.style.opacity='0'"
+                        style="opacity: 0; image-rendering: -webkit-optimize-contrast;" onload="this.style.opacity='1'" onerror="this.style.opacity='0'"
                         alt="模型完工照">
                     </div>
                     <div
@@ -504,7 +506,7 @@
                       class="absolute text-[40pt] text-[#8C7355] font-bold text-center z-0">/img/<br />data_structure.png</span>
                     <img :src="`${baseUrl}img/data_structure.png`"
                       class="relative w-full h-auto object-contain z-10 transition-opacity duration-300"
-                      style="opacity: 0;" onload="this.style.opacity='1'" onerror="this.style.opacity='0'" alt="資料結構升級">
+                      style="opacity: 0; image-rendering: -webkit-optimize-contrast;" onload="this.style.opacity='1'" onerror="this.style.opacity='0'" alt="資料結構升級">
                   </div>
                 </div>
 
@@ -519,7 +521,7 @@
                       class="absolute text-[40pt] text-[#4A677D] font-bold text-center z-0">/img/<br />v2i_concept.png</span>
                     <img :src="`${baseUrl}img/v2i_concept.png`"
                       class="relative w-full h-auto object-contain z-10 transition-opacity duration-300"
-                      style="opacity: 0;" onload="this.style.opacity='1'" onerror="this.style.opacity='0'" alt="車路協同概念">
+                      style="opacity: 0; image-rendering: -webkit-optimize-contrast;" onload="this.style.opacity='1'" onerror="this.style.opacity='0'" alt="車路協同概念">
                   </div>
                 </div>
 
