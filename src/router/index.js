@@ -3,20 +3,12 @@ import Home from '../views/Home.vue'
 import PdfWorkspace from '../views/PdfWorkspace.vue'
 
 const routes = [
-  {
-    path: '/',
-    name: 'Home',
-    component: Home
-  },
-  {
-    path: '/pdf',
-    name: 'PdfWorkspace',
-    component: PdfWorkspace
-  }
+  { path: '/', name: 'Home', component: Home },
+  { path: '/pdf', name: 'PdfWorkspace', component: PdfWorkspace }
 ]
 
 const router = createRouter({
-  history: createWebHistory(),
+  history: createWebHistory(import.meta.env.BASE_URL), 
   routes
 })
 
