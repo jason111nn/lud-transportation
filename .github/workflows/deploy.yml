@@ -1,0 +1,35 @@
+name: Deploy LUD to GitHub Pages
+
+on:
+  push:
+    branches: [main] # 當 main 分支有更新時觸發
+  workflow_dispatch: # 允許手動觸發
+
+permissions:
+  contents: write # 必須有寫入權限才能建立 gh-pages 分支
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout 檢出代碼
+        uses: actions/checkout@v4
+
+      - name: Setup Node 設定環境
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+
+      - name: Install Dependencies 安裝依賴
+        run: npm install
+
+      - name: Build 編譯專案
+        run: npm run build
+
+      - name: Deploy to GitHub Pages 部署至 gh-pages 分支
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }} # GitHub 自動產生的 Token
+          publish_dir: ./dist # 將編譯好的 dist 資料夾內容推上去
+          publish_branch: gh-pages
