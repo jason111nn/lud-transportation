@@ -17,4 +17,19 @@
 | `/img/final_model.png` | **Panel 3: 流程終點** | 十字路口模型與硬體安裝完工的最終實拍照。 |
 | `/img/data_structure.png` | **Panel 4: 未來展望** | 關於系統封包擴充或大數據傳輸架構的升級圖解。 |
 | `/img/v2i_concept.png` | **Panel 4: 未來展望** | 關於 V2I（車路協同）或智慧交通連結的概念示意圖。 |
+| `/img/og-image.png` | **Social Media Sharing** | 網站社群分享卡片圖片（建議 1200x630）。 |
 
+
+1. /img/behavior_analysis.png
+2. /img/system_arch.png
+3. /img/arduino_code.png
+4. /img/circuit_design.png
+5. /img/breadboard.png
+6. /img/final_model.png
+7. /img/3d_print.png
+8. /img/packet_5byte.png
+9. /img/android_dev.png
+10. /img/app_mockup.png
+11. /img/v2i_concept.png
+12. /img/data_structure.png
+13. /img/og-image.png

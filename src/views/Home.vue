@@ -9,9 +9,20 @@
         </h2>
         <div class="flex items-center gap-4 md:gap-8">
           <a href="mailto:jason5j288@gmail.com" class="hidden lg:block text-xs font-mono opacity-50 hover:opacity-100 transition-opacity">jason5j288@gmail.com</a>
-          <router-link to="/pdf" class="bg-[#4A677D] hover:bg-white hover:text-[#111827] text-white px-5 py-2 text-xs font-bold transition-all rounded-full border border-white/10 shadow-lg">
-            開啟海報預覽工作區
-          </router-link>
+          <div class="hidden sm:flex items-center gap-2">
+            <a :href="apkUrl" download="LUD.apk"
+              class="bg-[#4A677D] hover:bg-white hover:text-[#111827] text-white px-5 py-2 text-xs font-bold transition-all rounded-full border border-white/10 shadow-lg flex items-center gap-2">
+              <i class="fa-brands fa-android"></i> APK 下載
+            </a>
+            <a :href="specUrl" target="_blank" rel="noreferrer"
+              class="bg-white/10 hover:bg-white/20 text-white px-5 py-2 text-xs font-bold transition-all rounded-full border border-white/10 flex items-center gap-2">
+              <i class="fa-solid fa-file-pdf"></i> 作品說明書
+            </a>
+            <router-link to="/pdf"
+              class="bg-white/10 hover:bg-white/20 text-white px-5 py-2 text-xs font-bold transition-all rounded-full border border-white/10">
+              海報工作區
+            </router-link>
+          </div>
         </div>
       </div>
     </nav>
@@ -36,11 +47,37 @@
           <p class="text-lg md:text-xl text-gray-400 font-medium leading-relaxed max-w-xl">
             將傳統交通號誌「主動化」。透過低功耗藍牙 (BLE) 廣播技術，為低頭族打造零延遲的安全防線，有效解決路口起步延遲問題。
           </p>
-          <div class="flex flex-wrap gap-4">
-            <router-link to="/pdf" class="px-8 py-4 bg-[#4A677D] text-white font-bold rounded-xl hover:bg-white hover:text-[#111827] transition-all shadow-xl flex items-center gap-3 group">
-              進入專案工作區
+          <div class="flex flex-wrap gap-4 items-start">
+            <a :href="apkUrl" download="LUD.apk"
+              class="px-8 py-4 bg-[#4A677D] text-white font-bold rounded-xl hover:bg-white hover:text-[#111827] transition-all shadow-xl flex items-center gap-3 group">
+              <i class="fa-brands fa-android text-lg"></i>
+              Android APK 下載
+              <span class="ml-1 text-[10px] font-black tracking-widest px-2 py-1 rounded bg-black/30 border border-white/10">{{ apkVersion }}</span>
+              <i class="fa-solid fa-download group-hover:translate-y-[1px] transition-transform"></i>
+            </a>
+            <a :href="specUrl" target="_blank" rel="noreferrer"
+              class="px-8 py-4 bg-white/10 text-white font-bold rounded-xl hover:bg-white/20 transition-all border border-white/10 flex items-center gap-3">
+              <i class="fa-solid fa-file-pdf text-lg text-[#E53935]"></i>
+              查看作品說明書 (PDF)
+              <i class="fa-solid fa-arrow-up-right-from-square opacity-80"></i>
+            </a>
+            <button type="button" disabled
+              class="px-8 py-4 rounded-xl border border-white/15 text-white/60 font-bold bg-white/5 backdrop-blur-sm cursor-not-allowed flex items-center gap-3">
+              <i class="fa-brands fa-apple text-lg"></i>
+              iOS 測試版本
+              <span class="ml-1 text-[10px] font-black tracking-widest px-2 py-1 rounded bg-white/10 border border-white/10">規劃測試中</span>
+            </button>
+            <router-link to="/pdf"
+              class="px-8 py-4 bg-white/10 text-white font-bold rounded-xl hover:bg-white/20 transition-all border border-white/10 flex items-center gap-3 group">
+              海報預覽與導出工作區
               <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
             </router-link>
+          </div>
+          <div class="mt-2 text-white/70 text-sm md:text-base font-medium max-w-xl">
+            <span class="inline-flex items-center gap-2">
+              <i class="fa-solid fa-bolt text-[#4A677D]"></i>
+              {{ releaseHighlight }}
+            </span>
           </div>
         </div>
 
@@ -75,89 +112,348 @@
           </div>
         </div>
       </div>
+
+      <!-- Scroll Indicator -->
+      <button type="button" @click="scrollToId('problem')"
+        class="absolute bottom-10 left-1/2 -translate-x-1/2 z-20 text-white/70 hover:text-white transition-colors flex flex-col items-center gap-2 group">
+        <span class="text-[10px] tracking-[0.5em] uppercase font-mono opacity-60 group-hover:opacity-100 transition-opacity">Report & Details</span>
+        <div class="w-10 h-10 rounded-full border border-white/15 bg-white/5 backdrop-blur-sm flex items-center justify-center shadow-lg animate-soft-pulse">
+          <i class="fa-solid fa-arrow-down animate-bounce-soft"></i>
+        </div>
+      </button>
     </header>
 
     <main class="relative z-10">
-      <section class="section-reveal py-24 md:py-32 px-6 md:px-12 max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-24 items-center">
-        <div class="relative group order-2 md:order-1">
-          <div class="overflow-hidden rounded-[2.5rem] shadow-2xl border-[12px] border-white transition-transform duration-700 group-hover:scale-[1.02]">
-            <img src="/img/behavior_analysis.png" class="w-full grayscale hover:grayscale-0 transition-all duration-1000" alt="行為分析">
+      <!-- Section 1: 問題定義與研究動機 (The Problem) -->
+      <section id="problem" class="section-reveal py-24 md:py-32 px-6 md:px-12 max-w-7xl mx-auto">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center">
+          <div class="lg:col-span-5 space-y-7">
+            <div class="space-y-3">
+              <p class="text-[10px] font-mono tracking-[0.5em] uppercase text-gray-400">The Problem</p>
+              <h2 class="text-4xl md:text-5xl font-black text-[#111827] tracking-tighter">等紅燈滑手機</h2>
+              <div class="w-16 h-1.5 bg-[#4A677D] rounded-full"></div>
+            </div>
+            <p class="text-lg md:text-xl text-gray-600 leading-relaxed font-medium">
+              路口停等期間，低頭操作手機會造成「燈號切換 → 起步反應」的延遲，累積成後方車流衝突與追撞風險。
+              LUD 將號誌資訊以 <strong>V2I</strong> 思維轉成<strong>主動提醒</strong>，讓使用者不用抬頭搜尋燈號，也能同步掌握倒數。
+            </p>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div v-for="tag in ['場景再現：分心造成起步延遲', '痛點數據：事故統計佐證', '解法定義：V2I 主動提醒', '目標：降低路口衝突風險']" :key="tag"
+                class="flex items-center gap-3 font-black text-xs text-[#4A677D] bg-[#4A677D]/5 p-4 rounded-xl border border-[#4A677D]/10">
+                <i class="fa-solid fa-circle-check"></i> {{ tag }}
+              </div>
+            </div>
           </div>
-          <div class="absolute -bottom-6 -right-6 bg-[#111827] text-white px-6 py-4 md:px-8 md:py-6 rounded-3xl shadow-2xl">
-            <p class="text-[10px] font-bold opacity-40 uppercase tracking-widest mb-1">Issue Solving</p>
-            <p class="text-lg font-black tracking-tighter">低頭族安全預警</p>
-          </div>
-        </div>
-        
-        <div class="space-y-8 order-1 md:order-2">
-          <div class="space-y-4">
-            <h3 class="text-4xl md:text-5xl font-black text-[#111827] tracking-tighter">研究動機</h3>
-            <div class="w-16 h-1.5 bg-[#4A677D] rounded-full"></div>
-          </div>
-          <p class="text-lg md:text-xl text-gray-600 leading-relaxed font-medium">
-            現代用路人等紅燈時常因操作手機而忽略燈號變換。我們利用藍牙廣播技術實作了 <strong>Vehicle-to-Infrastructure (V2I)</strong> 提醒系統，將傳統號誌從「被動觀察」轉向「主動預警」。
-          </p>
-          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            <div v-for="tag in ['低延遲廣播', '數據同步化', '高精度預警', 'V2I 車路協同']" :key="tag" 
-              class="flex items-center gap-3 font-black text-xs text-[#4A677D] bg-[#4A677D]/5 p-4 rounded-xl border border-[#4A677D]/10">
-              <i class="fa-solid fa-circle-check"></i> {{ tag }}
+
+          <div class="lg:col-span-7 grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="bg-white rounded-[2rem] border border-gray-100 shadow-xl overflow-hidden group">
+              <div class="p-6 flex items-center justify-between">
+                <div>
+                  <p class="text-[10px] font-mono tracking-[0.4em] uppercase text-gray-400">Evidence</p>
+                  <p class="text-xl font-black tracking-tight text-[#111827] mt-1">歷年交通事故統計</p>
+                </div>
+                <i class="fa-solid fa-chart-simple text-[#4A677D]"></i>
+              </div>
+              <div class="bg-[#F8F9FA] border-t border-gray-100 p-5">
+                <img :src="assetUrl('img/behavior_analysis.png')" class="w-full h-[240px] object-contain rounded-xl" alt="歷年交通事故統計圖">
+              </div>
+            </div>
+
+            <div class="bg-white rounded-[2rem] border border-gray-100 shadow-xl overflow-hidden group">
+              <div class="p-6 flex items-center justify-between">
+                <div>
+                  <p class="text-[10px] font-mono tracking-[0.4em] uppercase text-gray-400">Context</p>
+                  <p class="text-xl font-black tracking-tight text-[#111827] mt-1">場景與報導引用</p>
+                </div>
+                <i class="fa-solid fa-newspaper text-[#8C7355]"></i>
+              </div>
+              <div class="bg-[#F8F9FA] border-t border-gray-100 p-5">
+                <img :src="assetUrl('img/news.png')" class="w-full h-[240px] object-cover rounded-xl" alt="低頭族情境與報導">
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      <section class="py-24 md:py-32 bg-white/50 border-y border-gray-200 px-6 md:px-12">
-        <div class="max-w-7xl mx-auto">
-          <div class="text-center mb-16 md:mb-24 space-y-4">
-            <h2 class="text-3xl md:text-4xl font-black tracking-widest text-[#111827]">TECHNICAL ARCHITECTURE</h2>
-            <p class="text-[#4A677D] font-bold tracking-[0.4em] uppercase text-[10px] md:text-xs">專案核心技術模組與邏輯</p>
+      <!-- Section 2: 核心技術與數據協議 (The Technology) -->
+      <section id="tech" class="py-24 md:py-32 bg-white/50 border-y border-gray-200 px-6 md:px-12">
+        <div class="max-w-7xl mx-auto space-y-12 md:space-y-16">
+          <div class="text-center space-y-4">
+            <h2 class="text-3xl md:text-4xl font-black tracking-widest text-[#111827]">THE TECHNOLOGY</h2>
+            <p class="text-[#4A677D] font-bold tracking-[0.4em] uppercase text-[10px] md:text-xs">ESP32 · Optocoupler · BLE 5-Byte · Android Receiver</p>
           </div>
 
-          <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12">
-            <div class="lg:col-span-4 space-y-3">
-              <button v-for="(section, idx) in technicalSections" :key="idx" 
-                @click="activeSection = idx"
-                class="w-full text-left p-6 md:p-8 rounded-[1.5rem] md:rounded-[2rem] transition-all duration-500 border-2"
-                :class="activeSection === idx ? 'bg-[#111827] text-white border-transparent shadow-2xl translate-x-2 md:translate-x-4' : 'bg-white border-gray-100 hover:border-[#4A677D]/30'">
-                <span class="block text-[10px] font-mono opacity-40 mb-1 md:mb-2 tracking-[0.3em]">MODULE 0{{ idx + 1 }}</span>
-                <h4 class="text-lg md:text-2xl font-black tracking-tight">{{ section.title }}</h4>
-              </button>
+          <!-- Hardware: ESP32 + Optocoupler -->
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-stretch">
+            <div class="lg:col-span-5 bg-white rounded-[2rem] p-8 border border-gray-100 shadow-xl">
+              <p class="text-[10px] font-mono tracking-[0.4em] uppercase text-gray-400">Hardware (RSU)</p>
+              <h3 class="text-2xl md:text-3xl font-black tracking-tight text-[#111827] mt-2">ESP32 控制端</h3>
+              <p class="text-gray-600 font-medium mt-4 leading-relaxed">
+                以 ESP32 作為路側單元核心，採用<strong>光耦合器 (Optocoupler)</strong> 進行硬體隔離，安全擷取號誌電平訊號而不干擾既有設備，
+                並以 BLE 非連線式廣播推送倒數與相位狀態。
+              </p>
+              <div class="flex flex-wrap gap-2 mt-6">
+                <span class="px-3 py-1 rounded-full bg-[#8C7355]/10 text-[#8C7355] text-xs font-black">Optocoupler Isolation</span>
+                <span class="px-3 py-1 rounded-full bg-[#4A677D]/10 text-[#4A677D] text-xs font-black">Non-connectable Advertising</span>
+                <span class="px-3 py-1 rounded-full bg-[#111827]/5 text-[#111827] text-xs font-black border border-gray-200">1s Push Update</span>
+              </div>
             </div>
 
-            <div class="lg:col-span-8 bg-white rounded-[2rem] md:rounded-[3rem] p-8 md:p-12 shadow-xl border border-gray-100 relative min-h-[450px] md:min-h-[550px] flex flex-col justify-center">
-              <transition name="fade-slide" mode="out-in">
-                <div :key="activeSection">
-                  <div v-if="activeSection === 0" class="space-y-6 md:space-y-8 animate-fade-in">
-                    <div class="text-base md:text-lg leading-relaxed text-gray-600 font-medium" v-html="technicalSections[0].content"></div>
-                    <div class="bg-[#F8F9FA] rounded-2xl p-4 md:p-6 border border-gray-100">
-                      <img src="/img/system_arch.png" class="max-h-[250px] md:max-h-[300px] w-full object-contain mx-auto" alt="架構圖">
-                    </div>
+            <div class="lg:col-span-7 grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div class="bg-white rounded-[2rem] border border-gray-100 shadow-xl overflow-hidden">
+                <div class="p-6 flex items-center justify-between">
+                  <div>
+                    <p class="text-[10px] font-mono tracking-[0.4em] uppercase text-gray-400">Circuit</p>
+                    <p class="text-xl font-black tracking-tight text-[#111827] mt-1">電路配置圖</p>
                   </div>
-                  
-                  <div v-if="activeSection === 1" class="space-y-8 md:space-y-10 animate-fade-in">
-                    <h4 class="text-xl md:text-2xl font-black text-[#4A677D] border-l-4 border-[#4A677D] pl-4">5-Byte 廣播協定設計</h4>
-                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
-                      <div v-for="packet in packetStructure" :key="packet.bytes" class="bg-[#111827] p-6 rounded-2xl md:rounded-3xl text-white shadow-xl flex flex-col">
-                        <span class="inline-block w-fit px-3 py-1 rounded bg-[#4A677D] text-[10px] font-mono mb-4 md:mb-6 uppercase tracking-widest">{{ packet.bytes }}</span>
-                        <p class="font-bold text-base md:text-xl mb-2">{{ packet.label }}</p>
-                        <p class="text-xs opacity-50 leading-relaxed">{{ packet.desc }}</p>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div v-if="activeSection === 2" class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 items-stretch h-full animate-fade-in">
-                    <div v-for="stat in performanceStats" :key="stat.label" class="flex flex-col justify-center text-center p-8 md:p-10 bg-[#F8F9FA] rounded-[2rem] border border-gray-100 shadow-inner">
-                      <p class="text-[10px] font-black text-[#4A677D] mb-4 md:mb-6 uppercase tracking-[0.3em]">{{ stat.label }}</p>
-                      <div class="flex items-baseline justify-center gap-1">
-                        <span v-if="stat.value.includes('<')" class="text-2xl md:text-3xl font-black text-[#111827] opacity-40">&lt;</span>
-                        <span class="text-4xl md:text-6xl font-black text-[#111827] tracking-tighter">
-                          {{ stat.value.replace('<', '') }}
-                        </span>
-                      </div>
-                    </div>
-                  </div>
+                  <i class="fa-solid fa-microchip text-[#8C7355]"></i>
                 </div>
-              </transition>
+                <div class="bg-[#F8F9FA] border-t border-gray-100 p-5">
+                  <img :src="assetUrl('img/circuit_design.png')" class="w-full h-[240px] object-cover rounded-xl" alt="電路配置圖">
+                </div>
+              </div>
+
+              <div class="bg-white rounded-[2rem] border border-gray-100 shadow-xl overflow-hidden">
+                <div class="p-6 flex items-center justify-between">
+                  <div>
+                    <p class="text-[10px] font-mono tracking-[0.4em] uppercase text-gray-400">Wiring</p>
+                    <p class="text-xl font-black tracking-tight text-[#111827] mt-1">麵包板接線實測</p>
+                  </div>
+                  <i class="fa-solid fa-plug-circle-bolt text-[#4A677D]"></i>
+                </div>
+                <div class="bg-[#F8F9FA] border-t border-gray-100 p-5">
+                  <img :src="assetUrl('img/breadboard.png')" class="w-full h-[240px] object-cover rounded-xl" alt="麵包板接線">
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Protocol: 5 bytes -->
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-stretch">
+            <div class="lg:col-span-6 bg-[#111827] rounded-[2rem] p-8 border border-white/5 shadow-xl text-white overflow-hidden">
+              <p class="text-[10px] font-mono tracking-[0.4em] uppercase text-white/40">BLE Advertising Payload</p>
+              <h3 class="text-2xl md:text-3xl font-black mt-2">5-Byte 極簡封包協議</h3>
+              <p class="text-white/70 font-medium mt-4 leading-relaxed">
+                將辨識碼、相位與倒數高度壓縮，讓訊息在高干擾環境下仍能穩定、快速、可解析。
+              </p>
+
+              <div class="mt-6 bg-black/40 rounded-2xl p-5 border border-white/10 font-mono text-xs">
+                <p class="text-white/40">// Example (live simulated)</p>
+                <p class="mt-2 tracking-[0.25em] text-base">0xFFFF 0x01 0x0{{ mockTimer.toString(16).toUpperCase() }}</p>
+              </div>
+
+              <div class="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div class="rounded-2xl bg-white/5 border border-white/10 p-4">
+                  <p class="text-[10px] tracking-[0.3em] uppercase font-mono text-white/40">Byte 0-1</p>
+                  <p class="mt-2 font-black">識別碼</p>
+                  <p class="text-white/60 text-sm mt-1">固定標記，用於接收端過濾來源。</p>
+                </div>
+                <div class="rounded-2xl bg-white/5 border border-white/10 p-4">
+                  <p class="text-[10px] tracking-[0.3em] uppercase font-mono text-white/40">Byte 2-3</p>
+                  <p class="mt-2 font-black">號誌相位</p>
+                  <p class="text-white/60 text-sm mt-1">承載路口狀態/相位資訊。</p>
+                </div>
+                <div class="rounded-2xl bg-white/5 border border-white/10 p-4 sm:col-span-2">
+                  <p class="text-[10px] tracking-[0.3em] uppercase font-mono text-white/40">Byte 4</p>
+                  <p class="mt-2 font-black">即時倒數</p>
+                  <p class="text-white/60 text-sm mt-1">每秒更新，UI 直接同步顯示。</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="lg:col-span-6 bg-white rounded-[2rem] p-8 border border-gray-100 shadow-xl">
+              <div class="flex items-center justify-between">
+                <div>
+                  <p class="text-[10px] font-mono tracking-[0.4em] uppercase text-gray-400">Protocol Diagram</p>
+                  <h3 class="text-2xl font-black tracking-tight text-[#111827] mt-2">封包結構圖解</h3>
+                </div>
+                <i class="fa-solid fa-box-open text-[#8C7355]"></i>
+              </div>
+              <div class="mt-6 bg-[#F8F9FA] rounded-2xl p-5 border border-gray-100">
+                <img :src="assetUrl('img/packet_5byte.png')" class="w-full h-[320px] object-contain rounded-xl" alt="5-Byte 封包結構">
+              </div>
+            </div>
+          </div>
+
+          <!-- Android Receiver -->
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-stretch">
+            <div class="lg:col-span-5 bg-white rounded-[2rem] p-8 border border-gray-100 shadow-xl">
+              <p class="text-[10px] font-mono tracking-[0.4em] uppercase text-gray-400">Android Receiver</p>
+              <h3 class="text-2xl md:text-3xl font-black tracking-tight text-[#111827] mt-2">Jetpack Compose 解析與同步</h3>
+              <p class="text-gray-600 font-medium mt-4 leading-relaxed">
+                Android 端以 Jetpack Compose 實作 UI，解析 BLE 廣播後即時更新倒數與提示狀態，確保體感零時差的同步體驗。
+              </p>
+              <div class="flex flex-wrap gap-2 mt-6">
+                <span class="px-3 py-1 rounded-full bg-[#4A677D]/10 text-[#4A677D] text-xs font-black">BLE Scan Filter</span>
+                <span class="px-3 py-1 rounded-full bg-[#4A677D]/10 text-[#4A677D] text-xs font-black">State-driven UI</span>
+                <span class="px-3 py-1 rounded-full bg-[#8C7355]/10 text-[#8C7355] text-xs font-black">Compose</span>
+              </div>
+            </div>
+            <div class="lg:col-span-7 grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div class="bg-white rounded-[2rem] border border-gray-100 shadow-xl overflow-hidden">
+                <div class="p-6 flex items-center justify-between">
+                  <div>
+                    <p class="text-[10px] font-mono tracking-[0.4em] uppercase text-gray-400">Dev</p>
+                    <p class="text-xl font-black tracking-tight text-[#111827] mt-1">Android 開發畫面</p>
+                  </div>
+                  <i class="fa-brands fa-android text-[#4A677D]"></i>
+                </div>
+                <div class="bg-[#F8F9FA] border-t border-gray-100 p-5">
+                  <img :src="assetUrl('img/android_dev.png')" class="w-full h-[240px] object-cover rounded-xl" alt="Android 開發畫面">
+                </div>
+              </div>
+              <div class="bg-white rounded-[2rem] border border-gray-100 shadow-xl overflow-hidden">
+                <div class="p-6 flex items-center justify-between">
+                  <div>
+                    <p class="text-[10px] font-mono tracking-[0.4em] uppercase text-gray-400">UI</p>
+                    <p class="text-xl font-black tracking-tight text-[#111827] mt-1">接收端提示介面</p>
+                  </div>
+                  <i class="fa-solid fa-mobile-screen-button text-[#8C7355]"></i>
+                </div>
+                <div class="bg-[#F8F9FA] border-t border-gray-100 p-5">
+                  <img :src="assetUrl('img/app_mockup.png')" class="w-full h-[240px] object-contain rounded-xl" alt="App 介面">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 3: 實作成果與模型驗證 (The Prototype) -->
+      <section id="prototype" class="py-24 md:py-32 px-6 md:px-12 max-w-7xl mx-auto">
+        <div class="text-center mb-14 md:mb-20 space-y-4">
+          <h2 class="text-3xl md:text-4xl font-black tracking-widest text-[#111827]">THE PROTOTYPE</h2>
+          <p class="text-[#4A677D] font-bold tracking-[0.4em] uppercase text-[10px] md:text-xs">硬體原型 · 十字路口模型 · 實測數據</p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-stretch">
+          <div class="lg:col-span-4 bg-white rounded-[2rem] p-8 border border-gray-100 shadow-xl">
+            <p class="text-[10px] font-mono tracking-[0.4em] uppercase text-gray-400">Field Result</p>
+            <h3 class="text-2xl font-black tracking-tight text-[#111827] mt-2">實測數據</h3>
+            <div class="grid grid-cols-1 gap-4 mt-6">
+              <div class="rounded-2xl bg-[#F8F9FA] border border-gray-100 p-5 text-center shadow-inner">
+                <p class="text-[10px] font-mono tracking-[0.3em] uppercase text-gray-400">傳輸延遲</p>
+                <p class="mt-3 text-4xl font-black tracking-tighter text-[#111827]">&lt;200<span class="text-lg opacity-50">ms</span></p>
+              </div>
+              <div class="rounded-2xl bg-[#F8F9FA] border border-gray-100 p-5 text-center shadow-inner">
+                <p class="text-[10px] font-mono tracking-[0.3em] uppercase text-gray-400">通訊範圍</p>
+                <p class="mt-3 text-4xl font-black tracking-tighter text-[#111827]">3<span class="text-lg opacity-50">m</span></p>
+              </div>
+              <div class="rounded-2xl bg-[#F8F9FA] border border-gray-100 p-5 text-center shadow-inner">
+                <p class="text-[10px] font-mono tracking-[0.3em] uppercase text-gray-400">封包</p>
+                <p class="mt-3 text-4xl font-black tracking-tighter text-[#111827]">5<span class="text-lg opacity-50">B</span></p>
+              </div>
+            </div>
+          </div>
+
+          <div class="lg:col-span-8 grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="bg-white rounded-[2rem] border border-gray-100 shadow-xl overflow-hidden">
+              <div class="p-6 flex items-center justify-between">
+                <div>
+                  <p class="text-[10px] font-mono tracking-[0.4em] uppercase text-gray-400">Firmware</p>
+                  <p class="text-xl font-black tracking-tight text-[#111827] mt-1">Arduino / 韌體實作</p>
+                </div>
+                <i class="fa-solid fa-code text-[#4A677D]"></i>
+              </div>
+              <div class="bg-[#F8F9FA] border-t border-gray-100 p-5">
+                <img :src="assetUrl('img/arduino_code.png')" class="w-full h-[240px] object-cover rounded-xl" alt="Arduino 程式碼">
+              </div>
+            </div>
+            <div class="bg-white rounded-[2rem] border border-gray-100 shadow-xl overflow-hidden">
+              <div class="p-6 flex items-center justify-between">
+                <div>
+                  <p class="text-[10px] font-mono tracking-[0.4em] uppercase text-gray-400">Manufacturing</p>
+                  <p class="text-xl font-black tracking-tight text-[#111827] mt-1">3D 列印外殼</p>
+                </div>
+                <i class="fa-solid fa-cube text-[#8C7355]"></i>
+              </div>
+              <div class="bg-[#F8F9FA] border-t border-gray-100 p-5">
+                <img :src="assetUrl('img/3d_print.png')" class="w-full h-[240px] object-cover rounded-xl" alt="3D 列印外殼">
+              </div>
+            </div>
+            <div class="md:col-span-2 bg-white rounded-[2rem] border border-gray-100 shadow-xl overflow-hidden">
+              <div class="p-6 flex items-center justify-between">
+                <div>
+                  <p class="text-[10px] font-mono tracking-[0.4em] uppercase text-gray-400">Validation</p>
+                  <p class="text-xl font-black tracking-tight text-[#111827] mt-1">十字路口模型驗證</p>
+                </div>
+                <i class="fa-solid fa-road text-[#111827]"></i>
+              </div>
+              <div class="bg-[#F8F9FA] border-t border-gray-100 p-5">
+                <img :src="assetUrl('img/final_model.png')" class="w-full h-[320px] object-contain rounded-xl" alt="十字路口模型完工照">
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 4: 未來展望與擴充方向 (The Vision) -->
+      <section id="vision" class="py-24 md:py-32 px-6 md:px-12 max-w-7xl mx-auto">
+        <div class="text-center mb-14 md:mb-20 space-y-4">
+          <h2 class="text-3xl md:text-4xl font-black tracking-widest text-[#111827]">THE VISION</h2>
+          <p class="text-[#4A677D] font-bold tracking-[0.4em] uppercase text-[10px] md:text-xs">iOS · Data · V2I · In-vehicle devices</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-6 lg:gap-8">
+          <div class="lg:col-span-4 bg-white rounded-[2rem] p-8 border border-gray-100 shadow-xl">
+            <div class="w-14 h-14 rounded-2xl bg-[#4A677D]/10 text-[#4A677D] flex items-center justify-center border border-[#4A677D]/10">
+              <i class="fa-brands fa-apple text-2xl"></i>
+            </div>
+            <h3 class="text-2xl font-black tracking-tight text-[#111827] mt-5">iOS 版開發進度</h3>
+            <p class="text-gray-600 font-medium mt-3 leading-relaxed">
+              以穩定的接收與 UI 同步為目標，補齊跨平台能力。
+            </p>
+          </div>
+
+          <div class="lg:col-span-4 bg-white rounded-[2rem] p-8 border border-gray-100 shadow-xl">
+            <div class="w-14 h-14 rounded-2xl bg-[#8C7355]/10 text-[#8C7355] flex items-center justify-center border border-[#8C7355]/10">
+              <i class="fa-solid fa-database text-2xl"></i>
+            </div>
+            <h3 class="text-2xl font-black tracking-tight text-[#111827] mt-5">大數據交通分析</h3>
+            <p class="text-gray-600 font-medium mt-3 leading-relaxed">
+              透過去識別化數據，量化「起步延遲」改善幅度，反饋到路口優化策略。
+            </p>
+          </div>
+
+          <div class="lg:col-span-4 bg-white rounded-[2rem] p-8 border border-gray-100 shadow-xl">
+            <div class="w-14 h-14 rounded-2xl bg-[#111827]/10 text-[#111827] flex items-center justify-center border border-gray-200">
+              <i class="fa-solid fa-road-circle-check text-2xl"></i>
+            </div>
+            <h3 class="text-2xl font-black tracking-tight text-[#111827] mt-5">V2I 深度介接</h3>
+            <p class="text-gray-600 font-medium mt-3 leading-relaxed">
+              與城市路口控制箱整合，提升部署彈性與可擴充性。
+            </p>
+          </div>
+
+          <div class="lg:col-span-12 bg-white rounded-[2rem] p-8 border border-gray-100 shadow-xl">
+            <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+              <div>
+                <p class="text-[10px] font-mono tracking-[0.4em] uppercase text-gray-400">In-vehicle</p>
+                <h3 class="text-2xl md:text-3xl font-black tracking-tight text-[#111827] mt-2">整合進車載設備（行車記錄器）</h3>
+                <p class="text-gray-600 font-medium mt-3 leading-relaxed max-w-3xl">
+                  未來將接收邏輯封裝至行車記錄器或車載顯示器，透過 Overlay/提示音等方式，打造更直覺的抬頭/低頭提醒體驗。
+                </p>
+              </div>
+              <router-link to="/pdf" class="shrink-0 px-6 py-3 rounded-xl bg-[#111827] text-white font-bold hover:bg-[#4A677D] transition-colors flex items-center justify-center gap-2">
+                查看完整海報與匯出
+                <i class="fa-solid fa-arrow-right"></i>
+              </router-link>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">
+              <div class="bg-[#F8F9FA] border border-gray-100 rounded-2xl p-5 overflow-hidden">
+                <div class="flex items-center justify-between mb-4">
+                  <p class="text-sm font-black text-[#111827]">資料結構升級</p>
+                  <i class="fa-solid fa-layer-group text-[#8C7355]"></i>
+                </div>
+                <img :src="assetUrl('img/data_structure.png')" class="w-full h-[220px] object-contain rounded-xl" alt="資料結構升級">
+              </div>
+              <div class="bg-[#F8F9FA] border border-gray-100 rounded-2xl p-5 overflow-hidden">
+                <div class="flex items-center justify-between mb-4">
+                  <p class="text-sm font-black text-[#111827]">V2I 概念</p>
+                  <i class="fa-solid fa-network-wired text-[#4A677D]"></i>
+                </div>
+                <img :src="assetUrl('img/v2i_concept.png')" class="w-full h-[220px] object-contain rounded-xl" alt="V2I 概念圖">
+              </div>
             </div>
           </div>
         </div>
@@ -167,14 +463,38 @@
     <footer class="bg-[#111827] py-20 text-center px-8 border-t border-white/5">
       <div class="max-w-4xl mx-auto space-y-10">
         <div class="space-y-3">
-          <h2 class="text-3xl font-black text-white tracking-[0.2em]">LUD SYSTEM 2026</h2>
-          <p class="text-gray-500 font-mono text-[10px] tracking-[0.4em] uppercase">專題競賽實作紀錄</p>
+          <h2 class="text-3xl font-black text-white tracking-[0.2em]">LUD System</h2>
+          <p class="text-gray-500 font-mono text-[10px] tracking-[0.4em] uppercase">新北高工資訊科 / JASON111NN / 2026</p>
         </div>
-        <div class="flex justify-center">
-          <a href="mailto:jason5j288@gmail.com" class="flex items-center gap-4 bg-white/5 hover:bg-white/10 text-white px-8 py-4 rounded-xl transition-all border border-white/10 group">
-            <i class="fa-solid fa-envelope text-[#4A677D] text-lg"></i>
-            <span class="font-bold tracking-[0.1em] font-mono text-xs">jason5j288@gmail.com</span>
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-3xl mx-auto">
+          <a href="https://github.com/jason111nn/lud-transportation" target="_blank" rel="noreferrer"
+            class="flex items-center justify-center gap-3 bg-white/5 hover:bg-white/10 text-white px-6 py-4 rounded-xl transition-all border border-white/10">
+            <i class="fa-brands fa-github text-[#4A677D] text-lg"></i>
+            <span class="font-bold tracking-[0.1em] font-mono text-xs">GitHub Repo</span>
           </a>
+          <a href="mailto:jason5j288@gmail.com"
+            class="flex items-center justify-center gap-3 bg-white/5 hover:bg-white/10 text-white px-6 py-4 rounded-xl transition-all border border-white/10">
+            <i class="fa-solid fa-envelope text-[#4A677D] text-lg"></i>
+            <span class="font-bold tracking-[0.1em] font-mono text-xs">Email</span>
+          </a>
+          <a href="https://jason111nn.github.io/lud-transportation/" target="_blank" rel="noreferrer"
+            class="flex items-center justify-center gap-3 bg-white/5 hover:bg-white/10 text-white px-6 py-4 rounded-xl transition-all border border-white/10">
+            <i class="fa-solid fa-globe text-[#4A677D] text-lg"></i>
+            <span class="font-bold tracking-[0.1em] font-mono text-xs">Live Demo</span>
+          </a>
+        </div>
+
+        <div class="text-white/60 text-xs font-mono leading-relaxed max-w-3xl mx-auto">
+          Website developed by <span class="text-white/80 font-bold">Jason111nn</span> using Vue 3, Vite, and GSAP for dynamic monitoring simulation.
+        </div>
+
+        <div class="text-white/50 text-xs font-mono">
+          <a class="underline hover:text-white/80 transition-colors"
+            href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh-hant" target="_blank" rel="noreferrer">
+            CC BY-NC-SA 4.0
+          </a>
+          <span class="mx-2">·</span>
+          © {{ currentYear }} All rights reserved.
         </div>
       </div>
     </footer>
@@ -182,25 +502,42 @@
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue'
+import { ref, onBeforeUnmount, onMounted } from 'vue'
 import { gsap } from 'gsap'
 
+const baseUrl = import.meta.env.BASE_URL
+const assetUrl = (path) => `${baseUrl}${path}`
+
 const showHeader = ref(false)
-const activeSection = ref(0)
 const mockTimer = ref(15)
+const apkVersion = 'v1.0.0'
+const releaseHighlight = '極低延遲藍牙廣播 1.0：Non-connectable 廣播 · 5-Byte 協議 · 倒數同步'
+const currentYear = new Date().getFullYear()
+
+const apkUrl = assetUrl('LUD.apk')
+const specUrl = `${baseUrl}${encodeURIComponent('作品說明書.pdf')}`
 
 // 模擬數據更新
+let mockIntervalId = null
 const startMockData = () => {
-  setInterval(() => {
+  mockIntervalId = window.setInterval(() => {
     if (mockTimer.value > 0) mockTimer.value--
     else mockTimer.value = 15
   }, 1000)
 }
 
+const scrollToId = (id) => {
+  const el = document.getElementById(id)
+  if (!el) return
+  el.scrollIntoView({ behavior: 'smooth', block: 'start' })
+}
+
+const onScroll = () => {
+  showHeader.value = window.scrollY > 200
+}
+
 onMounted(() => {
-  window.addEventListener('scroll', () => {
-    showHeader.value = window.scrollY > 200
-  })
+  window.addEventListener('scroll', onScroll)
   startMockData()
 
   const tl = gsap.timeline()
@@ -208,27 +545,10 @@ onMounted(() => {
     .from('.hero-visual', { x: 40, opacity: 0, duration: 1.2, ease: 'power3.out' }, '-=0.7')
 })
 
-const technicalSections = [
-  { id: '01', title: '軟硬體系統架構', content: `
-    <p>● <strong>核心主控：</strong> 採用 ESP32 進行 BLE 非連線式廣播，確保數據傳輸具備物理級穩定性。</p>
-    <p>● <strong>硬體驅動：</strong> 利用 IC 7447 驅動七段顯示器，實現硬體與軟體端的即時數據同步。</p>
-    <p>● <strong>韌體開發：</strong> 採用中斷服務 (ISR) 機制，優化封包發送頻次與倒數精度。</p>
-  `},
-  { id: '02', title: '5-Byte 廣播協定' },
-  { id: '03', title: '系統性能指標' }
-]
-
-const packetStructure = [
-  { bytes: 'B0-B1', label: '識別碼', desc: '0xFFFF 固定標記，由 App 端進行數據過濾與正確性校驗。' },
-  { bytes: 'B2-B3', label: '號誌相位', desc: '標註路口當前相位狀態 (例如：0x01 為通行階段)。' },
-  { bytes: 'B4', label: '剩餘秒數', desc: '發送即時計時值，供接收端進行體感零時差的渲染。' }
-]
-
-const performanceStats = [
-  { label: '平均延遲', value: '< 200ms' },
-  { label: '穩定半徑', value: '3M' },
-  { label: '提醒精度', value: '100%' }
-]
+onBeforeUnmount(() => {
+  window.removeEventListener('scroll', onScroll)
+  if (mockIntervalId) window.clearInterval(mockIntervalId)
+})
 </script>
 
 <style scoped>
@@ -237,19 +557,28 @@ const performanceStats = [
   white-space: nowrap;
 }
 
-/* 內容切換過渡 */
-.fade-slide-enter-active, .fade-slide-leave-active {
-  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-}
-.fade-slide-enter-from { opacity: 0; transform: translateY(15px); }
-.fade-slide-leave-to { opacity: 0; transform: translateY(-15px); }
-
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(10px); }
   to { opacity: 1; transform: translateY(0); }
 }
 .animate-fade-in {
   animation: fadeIn 0.5s ease-out forwards;
+}
+
+@keyframes softPulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(74, 103, 125, 0.25); }
+  50% { box-shadow: 0 0 0 18px rgba(74, 103, 125, 0.0); }
+}
+.animate-soft-pulse {
+  animation: softPulse 2.2s ease-out infinite;
+}
+
+@keyframes bounceSoft {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(4px); }
+}
+.animate-bounce-soft {
+  animation: bounceSoft 1.4s ease-in-out infinite;
 }
 
 /* 響應式字體微調 */

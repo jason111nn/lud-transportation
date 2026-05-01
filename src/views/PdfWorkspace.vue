@@ -20,9 +20,7 @@
     </div>
 
     <!-- The Centering Container -->
-    <div
-      :class="exportPanel !== 'all' ? 'w-full h-full' : 'mt-16 relative w-full h-[calc(100vh-4rem)] overflow-auto bg-[#1a1a1a] p-[100px]'">
-
+    <div :class="exportPanel !== 'all' ? 'w-full h-full' : 'mt-16 relative w-full h-[calc(100vh-4rem)] overflow-x-auto overflow-y-auto bg-[#1a1a1a] scroll-smooth'">
       <!-- Spacer for Scale(0.1) during preview -->
       <div
         :style="exportPanel === 'all' ? { width: `${2806 * zoomScale * 0.1}mm`, height: `${1206 * zoomScale * 0.1}mm`, position: 'relative' } : ''">
@@ -553,7 +551,7 @@
           <button @click="adjustZoom(-0.2)"
             class="w-12 h-12 bg-[#4A677D] text-white rounded-full shadow-xl hover:bg-[#333333] transition-all flex items-center justify-center">
             <i class="fa-solid fa-minus"></i>
-          </button>！
+          </button>
         </div>
       </div>
     </div>
@@ -561,7 +559,7 @@
 </template>
 
 <script setup>
-import { onMounted, ref } from 'vue'
+import { onBeforeUnmount, onMounted, ref } from 'vue'
 import { gsap } from 'gsap'
 import { useRoute } from 'vue-router'
 
@@ -569,16 +567,55 @@ const route = useRoute()
 const exportPanel = ref('all') // 'all', 'panel-1', 'panel-2', 'panel-3', 'panel-4'
 const baseUrl = import.meta.env.BASE_URL
 
+// 縮放狀態（Template 使用 `zoomScale * 0.1` 作為最終 transform scale）
+const zoomScale = ref(1.0)
+
+const POSTER_MM = { w: 2806, h: 1206 }
+const MM_TO_PX = 3.7795 // 96DPI approx: 1mm ≈ 3.7795px
+
+const isMobileViewport = () => window.innerWidth < 768
+
+const calculateFitScale = () => {
+  const posterWpx = POSTER_MM.w * MM_TO_PX
+  const posterHpx = POSTER_MM.h * MM_TO_PX
+
+  // 扣掉 Header（僅 preview 會顯示）和一些安全邊距
+  const headerHpx = exportPanel.value === 'all' ? 64 : 0
+  const margin = 100
+
+  const containerW = Math.max(1, window.innerWidth - margin)
+  const containerH = Math.max(1, window.innerHeight - headerHpx - margin)
+
+  const next =
+    isMobileViewport()
+      ? (containerH / posterHpx) * 10 // mobile: fit height
+      : (containerW / posterWpx) * 10 // desktop/tablet: fit width
+
+  zoomScale.value = Number(next.toFixed(2))
+}
+
 onMounted(() => {
   // Check URL parameter directly
+  
   const urlParams = new URLSearchParams(window.location.search)
   const mode = urlParams.get('export')
+  const isMobile = isMobileViewport()
+  const isExportMode = mode === 'true' || (mode && mode.startsWith('panel-'))
+
+  // 如果是手機版，先跳出提醒
+  if (isMobile && exportPanel.value === 'all' && !isExportMode) {
+    alert("💡 建議使用電腦版瀏覽以獲得最佳排版體驗。\n手機版將自動切換為高度優先模式。");
+  }
 
   if (mode && mode.startsWith('panel-')) {
     exportPanel.value = mode
   } else if (mode === 'true') {
     exportPanel.value = 'all'
   }
+
+  // 初次進入時做一次 fit（會依目前 exportPanel 判斷 header 高度）
+  calculateFitScale()
+  window.addEventListener('resize', calculateFitScale)
 
   if (exportPanel.value === 'all' && mode !== 'true') {
     const tl = gsap.timeline({ delay: 0.2 })
@@ -604,17 +641,18 @@ onMounted(() => {
   }
 })
 
-// 縮放狀態
-const zoomScale = ref(1.0);
-
 const adjustZoom = (delta) => {
-  const newScale = zoomScale.value + delta;
+  const newScale = zoomScale.value + delta
   if (newScale >= 0.1 && newScale <= 10) {
-    zoomScale.value = Number(newScale.toFixed(2));
+    zoomScale.value = Number(newScale.toFixed(2))
   }
-};
+}
 
 const resetZoom = () => {
-  zoomScale.value = 1.0;
-};
+  calculateFitScale()
+}
+
+onBeforeUnmount(() => {
+  window.removeEventListener('resize', calculateFitScale)
+})
 </script>
