@@ -514,10 +514,9 @@ const apkVersion = 'v1.0.0'
 const releaseHighlight = '極低延遲藍牙廣播 1.0：Non-connectable 廣播 · 5-Byte 協議 · 倒數同步'
 const currentYear = new Date().getFullYear()
 
-const apkUrl = assetUrl('LUD.apk')
+const apkUrl = 'https://github.com/jason111nn/lud-transportation/releases/download/v1.0.0/LUD.apk'
 const specUrl = `${baseUrl}${encodeURIComponent('作品說明書.pdf')}`
 
-// 模擬數據更新
 let mockIntervalId = null
 const startMockData = () => {
   mockIntervalId = window.setInterval(() => {
