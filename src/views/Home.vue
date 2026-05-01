@@ -189,8 +189,7 @@
               <p class="text-[10px] font-mono tracking-[0.4em] uppercase text-gray-400">Hardware (RSU)</p>
               <h3 class="text-2xl md:text-3xl font-black tracking-tight text-[#111827] mt-2">ESP32 控制端</h3>
               <p class="text-gray-600 font-medium mt-4 leading-relaxed">
-                以 ESP32 作為路側單元核心，採用<strong>光耦合器 (Optocoupler)</strong> 進行硬體隔離，安全擷取號誌電平訊號而不干擾既有設備，
-                並以 BLE 非連線式廣播推送倒數與相位狀態。
+                以 ESP32 作為路側單元核心，負責同步處理交通號誌的邏輯控制與資料傳輸。系統在執行燈號切換與秒數倒數的同時，透過 <strong>BLE (低功耗藍牙) 非連線式廣播</strong>技術，將相位狀態與剩餘秒數即時推播至使用者的行動裝置，於模型中完美驗證了低延遲的 V2I 車路協同架構。
               </p>
               <div class="flex flex-wrap gap-2 mt-6">
                 <span class="px-3 py-1 rounded-full bg-[#8C7355]/10 text-[#8C7355] text-xs font-black">Optocoupler Isolation</span>
