@@ -15,6 +15,7 @@ export default {
           dark: '#4A4A4A',
         }
       },
+      // 自定義海報尺寸
       spacing: {
         'bleed': '3mm',
         'p-side': '450mm',
