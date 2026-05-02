@@ -8,7 +8,6 @@
           LUD <span class="hidden sm:inline-block text-[#4A677D] text-xs font-bold tracking-[0.2em] uppercase border-l border-white/20 pl-2">Low-head Up Display</span>
         </h2>
         <div class="flex items-center gap-4 md:gap-8">
-          <a href="mailto:jason5j288@gmail.com" class="hidden lg:block text-xs font-mono opacity-50 hover:opacity-100 transition-opacity">jason5j288@gmail.com</a>
           <div class="hidden sm:flex items-center gap-2">
             <a :href="apkUrl" download="LUD.apk"
               class="bg-[#4A677D] hover:bg-white hover:text-[#111827] text-white px-5 py-2 text-xs font-bold transition-all rounded-full border border-white/10 shadow-lg flex items-center gap-2">
@@ -55,6 +54,14 @@
               <span class="ml-1 text-[10px] font-black tracking-widest px-2 py-1 rounded bg-black/30 border border-white/10">{{ apkVersion }}</span>
               <i class="fa-solid fa-download group-hover:translate-y-[1px] transition-transform"></i>
             </a>
+          
+            <a :href="inoUrl" download="LUD_Firmware_v1.0.ino"
+              class="px-8 py-4 bg-white/10 text-white font-bold rounded-xl hover:bg-white/20 transition-all border border-white/10 flex items-center gap-3 group">
+              <i class="fa-solid fa-microchip text-lg text-[#8C7355]"></i>
+              ESP32 韌體原始碼 (.ino)
+              <i class="fa-solid fa-code opacity-80 group-hover:scale-110 transition-transform"></i>
+            </a>
+          
             <a :href="specUrl" target="_blank" rel="noreferrer"
               class="px-8 py-4 bg-white/10 text-white font-bold rounded-xl hover:bg-white/20 transition-all border border-white/10 flex items-center gap-3">
               <i class="fa-solid fa-file-pdf text-lg text-[#E53935]"></i>
@@ -67,6 +74,7 @@
               iOS 測試版本
               <span class="ml-1 text-[10px] font-black tracking-widest px-2 py-1 rounded bg-white/10 border border-white/10">規劃測試中</span>
             </button>
+            
             <router-link to="/pdf"
               class="px-8 py-4 bg-white/10 text-white font-bold rounded-xl hover:bg-white/20 transition-all border border-white/10 flex items-center gap-3 group">
               海報預覽與導出工作區
@@ -124,6 +132,76 @@
     </header>
 
     <main class="relative z-10">
+      <section id="resources" class="py-24 md:py-32 px-6 md:px-12 max-w-7xl mx-auto">
+        <div class="text-center mb-14 md:mb-20 space-y-4">
+          <h2 class="text-3xl md:text-4xl font-black tracking-widest text-[#111827]">RESOURCES</h2>
+          <p class="text-[#4A677D] font-bold tracking-[0.4em] uppercase text-[10px] md:text-xs">
+            學習紀錄 · 技術網誌 · 心得感想
+          </p>
+        </div>
+      
+        <div class="hidden md:grid grid-cols-2 gap-8">
+          <a href="https://jason111nn.github.io/" target="_blank" rel="noreferrer"
+            class="group relative h-[400px] rounded-[3rem] overflow-hidden border border-gray-100 shadow-2xl transition-all duration-500 hover:scale-[1.02]">
+            <img src="https://jason111nn.github.io/og-image.jpg" 
+              class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" 
+              alt="BLOG 作品集">
+            <div class="absolute inset-0 bg-gradient-to-t from-[#111827] via-[#111827]/40 to-transparent"></div>
+            <div class="absolute bottom-10 left-10 right-10">
+              <p class="text-[10px] font-mono tracking-[0.5em] text-white/50 uppercase mb-2">Portfolio</p>
+              <h3 class="text-3xl font-black text-white">我的 BLOG 作品集</h3>
+              <p class="text-white/60 font-medium mt-2">個人技術紀錄與專案整合 <span class="text-[#4A677D]">(製作整理中)</span></p>
+              <div class="mt-6 inline-flex items-center gap-2 text-[#4A677D] font-bold text-sm">
+                Visit Blog <i class="fa-solid fa-arrow-right transition-transform group-hover:translate-x-2"></i>
+              </div>
+            </div>
+          </a>
+        
+          <div class="relative h-[400px] rounded-[3rem] overflow-hidden border border-gray-100 shadow-2xl cursor-not-allowed opacity-80 group">
+            <img src="https://jason111nn.github.io/lud-transportation/img/og-image.png" 
+              class="absolute inset-0 w-full h-full object-cover grayscale" 
+              alt="專題紀錄">
+            <div class="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/60 to-transparent"></div>
+            <div class="absolute bottom-10 left-10 right-10">
+              <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 border border-white/20 text-white/50 text-[10px] font-black uppercase tracking-widest mb-4">
+                <i class="fa-solid fa-lock text-[8px]"></i> Organizing
+              </div>
+              <h3 class="text-3xl font-black text-white/40">專題紀錄、心得與感想</h3>
+              <p class="text-white/30 font-medium mt-2">開發歷程與學習點滴 (內容整理中)</p>
+            </div>
+          </div>
+        </div>
+      
+        <div class="flex flex-col gap-4 md:hidden">
+          <a href="https://jason111nn.github.io/" target="_blank" rel="noreferrer"
+            class="flex items-center justify-between p-6 bg-white rounded-3xl border border-gray-100 shadow-lg active:scale-95 transition-transform">
+            <div class="flex items-center gap-4">
+              <div class="w-12 h-12 rounded-2xl bg-[#4A677D]/10 flex items-center justify-center text-[#4A677D]">
+                <i class="fa-solid fa-layer-group"></i>
+              </div>
+              <div>
+                <h4 class="font-black text-[#111827]">我的 BLOG 作品集</h4>
+                <p class="text-[10px] text-[#4A677D] font-bold uppercase tracking-widest">製作整理中</p>
+              </div>
+            </div>
+            <i class="fa-solid fa-chevron-right text-gray-300"></i>
+          </a>
+        
+          <div class="flex items-center justify-between p-6 bg-gray-50 rounded-3xl border border-gray-100 shadow-sm opacity-60">
+            <div class="flex items-center gap-4">
+              <div class="w-12 h-12 rounded-2xl bg-gray-200 flex items-center justify-center text-gray-400">
+                <i class="fa-solid fa-pen-nib"></i>
+              </div>
+              <div>
+                <h4 class="font-black text-gray-400">專題紀錄、心得與感想</h4>
+                <p class="text-[10px] text-gray-400 font-bold uppercase tracking-widest">整理中 (尚未開放)</p>
+              </div>
+            </div>
+            <i class="fa-solid fa-lock text-gray-300 text-xs"></i>
+          </div>
+        </div>
+      </section>
+
       <!-- Section 1: 問題定義與研究動機 (The Problem) -->
       <section id="problem" class="section-reveal py-24 md:py-32 px-6 md:px-12 max-w-7xl mx-auto">
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center">
@@ -514,6 +592,7 @@ const releaseHighlight = '極低延遲藍牙廣播 1.0：Non-connectable 廣播 
 const currentYear = new Date().getFullYear()
 
 const apkUrl = 'https://github.com/jason111nn/lud-transportation/releases/download/v1.0.0/LUD.apk'
+const inoUrl = 'https://github.com/jason111nn/lud-transportation/releases/download/v1.0.0/LUD_Firmware_v1.0.ino'
 const specUrl = `${baseUrl}${encodeURIComponent('作品說明書.pdf')}`
 
 let mockIntervalId = null
