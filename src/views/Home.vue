@@ -169,7 +169,7 @@
               <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 border border-white/20 text-white/50 text-[10px] font-black uppercase tracking-widest mb-4">
                 <i class="fa-solid fa-lock text-[8px]"></i> Organizing
               </div>
-              <h3 class="text-3xl font-black text-white/40">專題紀錄、心得與感想</h3>
+              <h3 class="text-3xl font-black text-white/70">專題紀錄、心得與感想</h3>
               <p class="text-white/30 font-medium mt-2">開發歷程與學習點滴 (內容整理中)</p>
             </div>
           </div>
@@ -311,30 +311,30 @@
           <!-- Protocol: 5 bytes -->
           <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-stretch">
             <div class="lg:col-span-6 bg-[#111827] rounded-[2rem] p-8 border border-white/5 shadow-xl text-white overflow-hidden">
-              <p class="text-[10px] font-mono tracking-[0.4em] uppercase text-white/40">BLE Advertising Payload</p>
+              <p class="text-[10px] font-mono tracking-[0.4em] uppercase text-white/70">BLE Advertising Payload</p>
               <h3 class="text-2xl md:text-3xl font-black mt-2">5-Byte 極簡封包協議</h3>
               <p class="text-white/70 font-medium mt-4 leading-relaxed">
                 將辨識碼、相位與倒數高度壓縮，讓訊息在高干擾環境下仍能穩定、快速、可解析。
               </p>
 
               <div class="mt-6 bg-black/40 rounded-2xl p-5 border border-white/10 font-mono text-xs">
-                <p class="text-white/40">// Example (live simulated)</p>
+                <p class="text-white/70">// Example (live simulated)</p>
                 <p class="mt-2 tracking-[0.25em] text-base">0xFFFF 0x01 0x0{{ mockTimer.toString(16).toUpperCase() }}</p>
               </div>
 
               <div class="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div class="rounded-2xl bg-white/5 border border-white/10 p-4">
-                  <p class="text-[10px] tracking-[0.3em] uppercase font-mono text-white/40">Byte 0-1</p>
+                  <p class="text-[10px] tracking-[0.3em] uppercase font-mono text-white/70">Byte 0-1</p>
                   <p class="mt-2 font-black">識別碼</p>
                   <p class="text-white/60 text-sm mt-1">固定標記，用於接收端過濾來源。</p>
                 </div>
                 <div class="rounded-2xl bg-white/5 border border-white/10 p-4">
-                  <p class="text-[10px] tracking-[0.3em] uppercase font-mono text-white/40">Byte 2-3</p>
+                  <p class="text-[10px] tracking-[0.3em] uppercase font-mono text-white/70">Byte 2-3</p>
                   <p class="mt-2 font-black">號誌相位</p>
                   <p class="text-white/60 text-sm mt-1">承載路口狀態/相位資訊。</p>
                 </div>
                 <div class="rounded-2xl bg-white/5 border border-white/10 p-4 sm:col-span-2">
-                  <p class="text-[10px] tracking-[0.3em] uppercase font-mono text-white/40">Byte 4</p>
+                  <p class="text-[10px] tracking-[0.3em] uppercase font-mono text-white/70">Byte 4</p>
                   <p class="mt-2 font-black">即時倒數</p>
                   <p class="text-white/60 text-sm mt-1">每秒更新，UI 直接同步顯示。</p>
                 </div>
@@ -345,7 +345,7 @@
               <div class="flex items-center justify-between">
                 <div>
                   <p class="text-[10px] font-mono tracking-[0.4em] uppercase text-gray-600">Protocol Diagram</p>
-                  <h3 class="text-2xl font-black tracking-tight text-[#111827] mt-2">封包結構圖解</h3>
+                  <h3 class="text-2xl font-black tracking-tight text-[#111827] mt-2">封包結構圖</h3>
                 </div>
                 <i class="fa-solid fa-box-open text-[#8C7355]"></i>
               </div>
