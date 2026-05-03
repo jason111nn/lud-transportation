@@ -413,15 +413,15 @@
             <div class="grid grid-cols-1 gap-4 mt-6">
               <div class="rounded-2xl bg-[#F8F9FA] border border-gray-100 p-5 text-center shadow-inner">
                 <p class="text-[10px] font-mono tracking-[0.3em] uppercase text-gray-600">傳輸延遲</p>
-                <p class="mt-3 text-4xl font-black tracking-tighter text-[#111827]">&lt;200<span class="text-lg opacity-50">ms</span></p>
+                <p class="mt-3 text-4xl font-black tracking-tighter text-[#111827]">&lt;200<span class="text-lg opacity-70">ms</span></p>
               </div>
               <div class="rounded-2xl bg-[#F8F9FA] border border-gray-100 p-5 text-center shadow-inner">
                 <p class="text-[10px] font-mono tracking-[0.3em] uppercase text-gray-600">通訊範圍</p>
-                <p class="mt-3 text-4xl font-black tracking-tighter text-[#111827]">3<span class="text-lg opacity-50">m</span></p>
+                <p class="mt-3 text-4xl font-black tracking-tighter text-[#111827]">3<span class="text-lg opacity-70">m</span></p>
               </div>
               <div class="rounded-2xl bg-[#F8F9FA] border border-gray-100 p-5 text-center shadow-inner">
                 <p class="text-[10px] font-mono tracking-[0.3em] uppercase text-gray-600">封包</p>
-                <p class="mt-3 text-4xl font-black tracking-tighter text-[#111827]">5<span class="text-lg opacity-50">B</span></p>
+                <p class="mt-3 text-4xl font-black tracking-tighter text-[#111827]">5<span class="text-lg opacity-70">B</span></p>
               </div>
             </div>
           </div>
@@ -646,10 +646,27 @@ onBeforeUnmount(() => {
 }
 
 @keyframes softPulse {
-  0%, 100% { box-shadow: 0 0 0 0 rgba(74, 103, 125, 0.25); }
-  50% { box-shadow: 0 0 0 18px rgba(74, 103, 125, 0.0); }
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1.4); /* 產生向外擴散的視覺感 */
+    opacity: 0;
+  }
 }
 .animate-soft-pulse {
+  position: relative; /* 必加，讓光圈以按鈕為中心 */
+  z-index: 1;
+}
+
+.animate-soft-pulse::after {
+  content: '';
+  position: absolute;
+  inset: 0; /* 填滿整個按鈕範圍 */
+  border-radius: inherit; /* 自動繼承按鈕的 rounded-full 或 rounded-xl */
+  background: rgba(74, 103, 125, 0.5); /* 你的 LUD 主色調 */
+  z-index: -1; /* 躲在按鈕本體後面 */
   animation: softPulse 2.2s ease-out infinite;
 }
 
