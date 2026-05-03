@@ -544,7 +544,7 @@
       <div class="max-w-4xl mx-auto space-y-10">
         <div class="space-y-3">
           <h2 class="text-3xl font-black text-white tracking-[0.2em]">LUD System</h2>
-          <p class="text-gray-500 font-mono text-[10px] tracking-[0.4em] uppercase">新北高工資訊科 / JASON111NN / 2026</p>
+          <p class="text-gray-500 font-mono text-[10px] tracking-[0.4em] uppercase">新北高工資訊科 / 朱冠昇 (JASON111NN) / 2026</p>
         </div>
         <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-3xl mx-auto">
           <a href="https://github.com/jason111nn/lud-transportation" target="_blank" rel="noreferrer"
