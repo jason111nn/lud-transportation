@@ -43,7 +43,7 @@
           <h1 class="text-4xl md:text-6xl font-black text-white leading-[1.1] tracking-tighter">
             低頭顯示器<br/><span class="text-[#4A677D]">交通號誌提醒系統</span>
           </h1>
-          <p class="text-lg md:text-xl font-bold text-gray-400 leading-[1.1] tracking-tighter">
+          <p class="text-lg md:text-xl font-bold text-gray-300 leading-[1.1] tracking-tighter">
             智慧預警 - LUD 系統
           </p>
           <p class="text-lg md:text-xl text-gray-600 font-medium leading-relaxed max-w-xl">
@@ -146,9 +146,9 @@
         <div class="hidden md:grid grid-cols-2 gap-8">
           <a href="https://jason111nn.github.io/" target="_blank" rel="noreferrer"
             class="group relative h-[400px] rounded-[3rem] overflow-hidden border border-gray-100 shadow-2xl transition-all duration-500 hover:scale-[1.02]">
-            <img src="https://jason111nn.github.io/og-image.jpg" 
-              class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" 
-              alt="BLOG 作品集">
+            <img src="https://jason111nn.github.io/og-image.jpg"
+              class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+              alt="BLOG 作品集" loading="lazy" decoding="async" width="1200" height="630">
             <div class="absolute inset-0 bg-gradient-to-t from-[#111827] via-[#111827]/40 to-transparent"></div>
             <div class="absolute bottom-10 left-10 right-10">
               <p class="text-[10px] font-mono tracking-[0.5em] text-white/50 uppercase mb-2">Portfolio</p>
@@ -161,9 +161,9 @@
           </a>
         
           <div class="relative h-[400px] rounded-[3rem] overflow-hidden border border-gray-100 shadow-2xl cursor-not-allowed opacity-80 group">
-            <img src="https://jason111nn.github.io/lud-transportation/img/og-image.png" 
-              class="absolute inset-0 w-full h-full object-cover grayscale" 
-              alt="專題紀錄">
+            <img :src="siteImg('og-image.png')"
+              class="absolute inset-0 w-full h-full object-cover grayscale"
+              alt="專題紀錄" loading="lazy" decoding="async" width="1200" height="630">
             <div class="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/60 to-transparent"></div>
             <div class="absolute bottom-10 left-10 right-10">
               <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 border border-white/20 text-white/50 text-[10px] font-black uppercase tracking-widest mb-4">
@@ -192,12 +192,12 @@
         
           <div class="flex items-center justify-between p-6 bg-gray-50 rounded-3xl border border-gray-100 shadow-sm opacity-60">
             <div class="flex items-center gap-4">
-              <div class="w-12 h-12 rounded-2xl bg-gray-200 flex items-center justify-center text-gray-400">
+              <div class="w-12 h-12 rounded-2xl bg-gray-200 flex items-center justify-center text-gray-600">
                 <i class="fa-solid fa-pen-nib"></i>
               </div>
               <div>
-                <h4 class="font-black text-gray-400">專題紀錄、心得與感想</h4>
-                <p class="text-[10px] text-gray-400 font-bold uppercase tracking-widest">整理中 (尚未開放)</p>
+                <h4 class="font-black text-gray-600">專題紀錄、心得與感想</h4>
+                <p class="text-[10px] text-gray-600 font-bold uppercase tracking-widest">整理中 (尚未開放)</p>
               </div>
             </div>
             <i class="fa-solid fa-lock text-gray-300 text-xs"></i>
@@ -210,7 +210,7 @@
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center">
           <div class="lg:col-span-5 space-y-7">
             <div class="space-y-3">
-              <p class="text-[10px] font-mono tracking-[0.5em] uppercase text-gray-400">The Problem</p>
+              <p class="text-[10px] font-mono tracking-[0.5em] uppercase text-gray-600">The Problem</p>
               <h2 class="text-4xl md:text-5xl font-black text-[#111827] tracking-tighter">等紅燈滑手機</h2>
               <div class="w-16 h-1.5 bg-[#4A677D] rounded-full"></div>
             </div>
@@ -230,26 +230,26 @@
             <div class="bg-white rounded-[2rem] border border-gray-100 shadow-xl overflow-hidden group">
               <div class="p-6 flex items-center justify-between">
                 <div>
-                  <p class="text-[10px] font-mono tracking-[0.4em] uppercase text-gray-400">Evidence</p>
+                  <p class="text-[10px] font-mono tracking-[0.4em] uppercase text-gray-600">Evidence</p>
                   <p class="text-xl font-black tracking-tight text-[#111827] mt-1">歷年交通事故統計</p>
                 </div>
                 <i class="fa-solid fa-chart-simple text-[#4A677D]"></i>
               </div>
               <div class="bg-[#F8F9FA] border-t border-gray-100 p-5">
-                <img :src="assetUrl('img/behavior_analysis.png')" class="w-full h-[240px] object-contain rounded-xl" alt="歷年交通事故統計圖">
+                <img :src="siteImg('behavior_analysis.png')" class="w-full h-[240px] object-contain rounded-xl" alt="歷年交通事故統計圖" loading="lazy" decoding="async" width="800" height="240">
               </div>
             </div>
 
             <div class="bg-white rounded-[2rem] border border-gray-100 shadow-xl overflow-hidden group">
               <div class="p-6 flex items-center justify-between">
                 <div>
-                  <p class="text-[10px] font-mono tracking-[0.4em] uppercase text-gray-400">Context</p>
+                  <p class="text-[10px] font-mono tracking-[0.4em] uppercase text-gray-600">Context</p>
                   <p class="text-xl font-black tracking-tight text-[#111827] mt-1">場景與報導引用</p>
                 </div>
                 <i class="fa-solid fa-newspaper text-[#8C7355]"></i>
               </div>
               <div class="bg-[#F8F9FA] border-t border-gray-100 p-5">
-                <img :src="assetUrl('img/news.png')" class="w-full h-[240px] object-cover rounded-xl" alt="低頭族情境與報導">
+                <img :src="siteImg('news.png')" class="w-full h-[240px] object-cover rounded-xl" alt="低頭族情境與報導" loading="lazy" decoding="async" width="800" height="240">
               </div>
             </div>
           </div>
@@ -267,7 +267,7 @@
           <!-- Hardware: ESP32 + Optocoupler -->
           <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-stretch">
             <div class="lg:col-span-5 bg-white rounded-[2rem] p-8 border border-gray-100 shadow-xl">
-              <p class="text-[10px] font-mono tracking-[0.4em] uppercase text-gray-400">Hardware (RSU)</p>
+              <p class="text-[10px] font-mono tracking-[0.4em] uppercase text-gray-600">Hardware (RSU)</p>
               <h3 class="text-2xl md:text-3xl font-black tracking-tight text-[#111827] mt-2">ESP32 控制端</h3>
               <p class="text-gray-600 font-medium mt-4 leading-relaxed">
                 以 ESP32 作為路側單元核心，負責同步處理交通號誌的邏輯控制與資料傳輸。系統在執行燈號切換與秒數倒數的同時，透過 <strong>BLE (低功耗藍牙) 非連線式廣播</strong>技術，將相位狀態與剩餘秒數即時推播至使用者的行動裝置，於模型中完美驗證了低延遲的 V2I 車路協同架構。
@@ -283,26 +283,26 @@
               <div class="bg-white rounded-[2rem] border border-gray-100 shadow-xl overflow-hidden">
                 <div class="p-6 flex items-center justify-between">
                   <div>
-                    <p class="text-[10px] font-mono tracking-[0.4em] uppercase text-gray-400">Circuit</p>
+                    <p class="text-[10px] font-mono tracking-[0.4em] uppercase text-gray-600">Circuit</p>
                     <p class="text-xl font-black tracking-tight text-[#111827] mt-1">電路配置圖</p>
                   </div>
                   <i class="fa-solid fa-microchip text-[#8C7355]"></i>
                 </div>
                 <div class="bg-[#F8F9FA] border-t border-gray-100 p-5">
-                  <img :src="assetUrl('img/circuit_design.png')" class="w-full h-[240px] object-cover rounded-xl" alt="電路配置圖">
+                  <img :src="siteImg('circuit_design.png')" class="w-full h-[240px] object-cover rounded-xl" alt="電路配置圖" loading="lazy" decoding="async" width="800" height="240">
                 </div>
               </div>
 
               <div class="bg-white rounded-[2rem] border border-gray-100 shadow-xl overflow-hidden">
                 <div class="p-6 flex items-center justify-between">
                   <div>
-                    <p class="text-[10px] font-mono tracking-[0.4em] uppercase text-gray-400">Wiring</p>
+                    <p class="text-[10px] font-mono tracking-[0.4em] uppercase text-gray-600">Wiring</p>
                     <p class="text-xl font-black tracking-tight text-[#111827] mt-1">麵包板接線實測</p>
                   </div>
                   <i class="fa-solid fa-plug-circle-bolt text-[#4A677D]"></i>
                 </div>
                 <div class="bg-[#F8F9FA] border-t border-gray-100 p-5">
-                  <img :src="assetUrl('img/breadboard.png')" class="w-full h-[240px] object-cover rounded-xl" alt="麵包板接線">
+                  <img :src="siteImg('breadboard.png')" class="w-full h-[240px] object-cover rounded-xl" alt="麵包板接線" loading="lazy" decoding="async" width="800" height="240">
                 </div>
               </div>
             </div>
@@ -344,13 +344,13 @@
             <div class="lg:col-span-6 bg-white rounded-[2rem] p-8 border border-gray-100 shadow-xl">
               <div class="flex items-center justify-between">
                 <div>
-                  <p class="text-[10px] font-mono tracking-[0.4em] uppercase text-gray-400">Protocol Diagram</p>
+                  <p class="text-[10px] font-mono tracking-[0.4em] uppercase text-gray-600">Protocol Diagram</p>
                   <h3 class="text-2xl font-black tracking-tight text-[#111827] mt-2">封包結構圖解</h3>
                 </div>
                 <i class="fa-solid fa-box-open text-[#8C7355]"></i>
               </div>
               <div class="mt-6 bg-[#F8F9FA] rounded-2xl p-5 border border-gray-100">
-                <img :src="assetUrl('img/packet_5byte.png')" class="w-full h-[320px] object-contain rounded-xl" alt="5-Byte 封包結構">
+                <img :src="siteImg('packet_5byte.png')" class="w-full h-[320px] object-contain rounded-xl" alt="5-Byte 封包結構" loading="lazy" decoding="async" width="900" height="320">
               </div>
             </div>
           </div>
@@ -358,7 +358,7 @@
           <!-- Android Receiver -->
           <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-stretch">
             <div class="lg:col-span-5 bg-white rounded-[2rem] p-8 border border-gray-100 shadow-xl">
-              <p class="text-[10px] font-mono tracking-[0.4em] uppercase text-gray-400">Android Receiver</p>
+              <p class="text-[10px] font-mono tracking-[0.4em] uppercase text-gray-600">Android Receiver</p>
               <h3 class="text-2xl md:text-3xl font-black tracking-tight text-[#111827] mt-2">Jetpack Compose 解析與同步</h3>
               <p class="text-gray-600 font-medium mt-4 leading-relaxed">
                 Android 端以 Jetpack Compose 實作 UI，解析 BLE 廣播後即時更新倒數與提示狀態，確保體感零時差的同步體驗。
@@ -373,25 +373,25 @@
               <div class="bg-white rounded-[2rem] border border-gray-100 shadow-xl overflow-hidden">
                 <div class="p-6 flex items-center justify-between">
                   <div>
-                    <p class="text-[10px] font-mono tracking-[0.4em] uppercase text-gray-400">Dev</p>
+                    <p class="text-[10px] font-mono tracking-[0.4em] uppercase text-gray-600">Dev</p>
                     <p class="text-xl font-black tracking-tight text-[#111827] mt-1">Android 開發畫面</p>
                   </div>
                   <i class="fa-brands fa-android text-[#4A677D]"></i>
                 </div>
                 <div class="bg-[#F8F9FA] border-t border-gray-100 p-5">
-                  <img :src="assetUrl('img/android_dev.png')" class="w-full h-[240px] object-cover rounded-xl" alt="Android 開發畫面">
+                  <img :src="siteImg('android_dev.png')" class="w-full h-[240px] object-cover rounded-xl" alt="Android 開發畫面" loading="lazy" decoding="async" width="800" height="240">
                 </div>
               </div>
               <div class="bg-white rounded-[2rem] border border-gray-100 shadow-xl overflow-hidden">
                 <div class="p-6 flex items-center justify-between">
                   <div>
-                    <p class="text-[10px] font-mono tracking-[0.4em] uppercase text-gray-400">UI</p>
+                    <p class="text-[10px] font-mono tracking-[0.4em] uppercase text-gray-600">UI</p>
                     <p class="text-xl font-black tracking-tight text-[#111827] mt-1">接收端提示介面</p>
                   </div>
                   <i class="fa-solid fa-mobile-screen-button text-[#8C7355]"></i>
                 </div>
                 <div class="bg-[#F8F9FA] border-t border-gray-100 p-5">
-                  <img :src="assetUrl('img/app_mockup.png')" class="w-full h-[240px] object-contain rounded-xl" alt="App 介面">
+                  <img :src="siteImg('app_mockup.png')" class="w-full h-[240px] object-contain rounded-xl" alt="App 介面" loading="lazy" decoding="async" width="800" height="240">
                 </div>
               </div>
             </div>
@@ -408,19 +408,19 @@
 
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-stretch">
           <div class="lg:col-span-4 bg-white rounded-[2rem] p-8 border border-gray-100 shadow-xl">
-            <p class="text-[10px] font-mono tracking-[0.4em] uppercase text-gray-400">Field Result</p>
+            <p class="text-[10px] font-mono tracking-[0.4em] uppercase text-gray-600">Field Result</p>
             <h3 class="text-2xl font-black tracking-tight text-[#111827] mt-2">實測數據</h3>
             <div class="grid grid-cols-1 gap-4 mt-6">
               <div class="rounded-2xl bg-[#F8F9FA] border border-gray-100 p-5 text-center shadow-inner">
-                <p class="text-[10px] font-mono tracking-[0.3em] uppercase text-gray-400">傳輸延遲</p>
+                <p class="text-[10px] font-mono tracking-[0.3em] uppercase text-gray-600">傳輸延遲</p>
                 <p class="mt-3 text-4xl font-black tracking-tighter text-[#111827]">&lt;200<span class="text-lg opacity-50">ms</span></p>
               </div>
               <div class="rounded-2xl bg-[#F8F9FA] border border-gray-100 p-5 text-center shadow-inner">
-                <p class="text-[10px] font-mono tracking-[0.3em] uppercase text-gray-400">通訊範圍</p>
+                <p class="text-[10px] font-mono tracking-[0.3em] uppercase text-gray-600">通訊範圍</p>
                 <p class="mt-3 text-4xl font-black tracking-tighter text-[#111827]">3<span class="text-lg opacity-50">m</span></p>
               </div>
               <div class="rounded-2xl bg-[#F8F9FA] border border-gray-100 p-5 text-center shadow-inner">
-                <p class="text-[10px] font-mono tracking-[0.3em] uppercase text-gray-400">封包</p>
+                <p class="text-[10px] font-mono tracking-[0.3em] uppercase text-gray-600">封包</p>
                 <p class="mt-3 text-4xl font-black tracking-tighter text-[#111827]">5<span class="text-lg opacity-50">B</span></p>
               </div>
             </div>
@@ -430,37 +430,37 @@
             <div class="bg-white rounded-[2rem] border border-gray-100 shadow-xl overflow-hidden">
               <div class="p-6 flex items-center justify-between">
                 <div>
-                  <p class="text-[10px] font-mono tracking-[0.4em] uppercase text-gray-400">Firmware</p>
+                  <p class="text-[10px] font-mono tracking-[0.4em] uppercase text-gray-600">Firmware</p>
                   <p class="text-xl font-black tracking-tight text-[#111827] mt-1">Arduino / 韌體實作</p>
                 </div>
                 <i class="fa-solid fa-code text-[#4A677D]"></i>
               </div>
               <div class="bg-[#F8F9FA] border-t border-gray-100 p-5">
-                <img :src="assetUrl('img/arduino_code.png')" class="w-full h-[240px] object-cover rounded-xl" alt="Arduino 程式碼">
+                <img :src="siteImg('arduino_code.png')" class="w-full h-[240px] object-cover rounded-xl" alt="Arduino 程式碼" loading="lazy" decoding="async" width="800" height="240">
               </div>
             </div>
             <div class="bg-white rounded-[2rem] border border-gray-100 shadow-xl overflow-hidden">
               <div class="p-6 flex items-center justify-between">
                 <div>
-                  <p class="text-[10px] font-mono tracking-[0.4em] uppercase text-gray-400">Manufacturing</p>
+                  <p class="text-[10px] font-mono tracking-[0.4em] uppercase text-gray-600">Manufacturing</p>
                   <p class="text-xl font-black tracking-tight text-[#111827] mt-1">3D 列印外殼</p>
                 </div>
                 <i class="fa-solid fa-cube text-[#8C7355]"></i>
               </div>
               <div class="bg-[#F8F9FA] border-t border-gray-100 p-5">
-                <img :src="assetUrl('img/3d_print.png')" class="w-full h-[240px] object-cover rounded-xl" alt="3D 列印外殼">
+                <img :src="siteImg('3d_print.png')" class="w-full h-[240px] object-cover rounded-xl" alt="3D 列印外殼" loading="lazy" decoding="async" width="800" height="240">
               </div>
             </div>
             <div class="md:col-span-2 bg-white rounded-[2rem] border border-gray-100 shadow-xl overflow-hidden">
               <div class="p-6 flex items-center justify-between">
                 <div>
-                  <p class="text-[10px] font-mono tracking-[0.4em] uppercase text-gray-400">Validation</p>
+                  <p class="text-[10px] font-mono tracking-[0.4em] uppercase text-gray-600">Validation</p>
                   <p class="text-xl font-black tracking-tight text-[#111827] mt-1">十字路口模型驗證</p>
                 </div>
                 <i class="fa-solid fa-road text-[#111827]"></i>
               </div>
               <div class="bg-[#F8F9FA] border-t border-gray-100 p-5">
-                <img :src="assetUrl('img/final_model.png')" class="w-full h-[320px] object-contain rounded-xl" alt="十字路口模型完工照">
+                <img :src="siteImg('final_model.png')" class="w-full h-[320px] object-contain rounded-xl" alt="十字路口模型完工照" loading="lazy" decoding="async" width="960" height="320">
               </div>
             </div>
           </div>
@@ -508,7 +508,7 @@
           <div class="lg:col-span-12 bg-white rounded-[2rem] p-8 border border-gray-100 shadow-xl">
             <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
               <div>
-                <p class="text-[10px] font-mono tracking-[0.4em] uppercase text-gray-400">In-vehicle</p>
+                <p class="text-[10px] font-mono tracking-[0.4em] uppercase text-gray-600">In-vehicle</p>
                 <h3 class="text-2xl md:text-3xl font-black tracking-tight text-[#111827] mt-2">整合進車載設備（行車記錄器）</h3>
                 <p class="text-gray-600 font-medium mt-3 leading-relaxed max-w-3xl">
                   未來將接收邏輯封裝至行車記錄器或車載顯示器，透過 Overlay/提示音等方式，打造更直覺的抬頭/低頭提醒體驗。
@@ -525,14 +525,14 @@
                   <p class="text-sm font-black text-[#111827]">資料結構升級</p>
                   <i class="fa-solid fa-layer-group text-[#8C7355]"></i>
                 </div>
-                <img :src="assetUrl('img/data_structure.png')" class="w-full h-[220px] object-contain rounded-xl" alt="資料結構升級">
+                <img :src="siteImg('data_structure.png')" class="w-full h-[220px] object-contain rounded-xl" alt="資料結構升級" loading="lazy" decoding="async" width="800" height="220">
               </div>
               <div class="bg-[#F8F9FA] border border-gray-100 rounded-2xl p-5 overflow-hidden">
                 <div class="flex items-center justify-between mb-4">
                   <p class="text-sm font-black text-[#111827]">V2I 概念</p>
                   <i class="fa-solid fa-network-wired text-[#4A677D]"></i>
                 </div>
-                <img :src="assetUrl('img/v2i_concept.png')" class="w-full h-[220px] object-contain rounded-xl" alt="V2I 概念圖">
+                <img :src="siteImg('v2i_concept.png')" class="w-full h-[220px] object-contain rounded-xl" alt="V2I 概念圖" loading="lazy" decoding="async" width="800" height="220">
               </div>
             </div>
           </div>
@@ -584,9 +584,9 @@
 <script setup>
 import { ref, onBeforeUnmount, onMounted } from 'vue'
 import { gsap } from 'gsap'
+import { siteImg } from '../utils/siteImages'
 
 const baseUrl = import.meta.env.BASE_URL
-const assetUrl = (path) => `${baseUrl}${path}`
 
 const showHeader = ref(false)
 const mockTimer = ref(15)

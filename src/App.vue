@@ -1,5 +1,6 @@
 <script setup>
 import { ref, onBeforeUnmount, onMounted } from 'vue'
+import { siteImg } from './utils/siteImages'
 
 const baseUrl = import.meta.env.BASE_URL
 const isLoading = ref(true)
@@ -7,20 +8,20 @@ const loadingProgress = ref(0)
 const loadingStatus = ref('PREPARING_ASSETS')
 
 const imageUrls = [
-  `${baseUrl}img/og-image.png`,
-  `${baseUrl}img/system_arch.png`,
-  `${baseUrl}img/behavior_analysis.png`,
-  `${baseUrl}img/final_model.png`,
-  `${baseUrl}img/circuit_design.png`,
-  `${baseUrl}img/packet_5byte.png`,
-  `${baseUrl}img/news.png`,
-  `${baseUrl}img/breadboard.png`,
-  `${baseUrl}img/android_dev.png`,
-  `${baseUrl}img/app_mockup.png`,
-  `${baseUrl}img/arduino_code.png`,
-  `${baseUrl}img/3d_print.png`,
-  `${baseUrl}img/data_structure.png`,
-  `${baseUrl}img/v2i_concept.png`,
+  siteImg('og-image.png'),
+  siteImg('system_arch.png'),
+  siteImg('behavior_analysis.png'),
+  siteImg('final_model.png'),
+  siteImg('circuit_design.png'),
+  siteImg('packet_5byte.png'),
+  siteImg('news.png'),
+  siteImg('breadboard.png'),
+  siteImg('android_dev.png'),
+  siteImg('app_mockup.png'),
+  siteImg('arduino_code.png'),
+  siteImg('3d_print.png'),
+  siteImg('data_structure.png'),
+  siteImg('v2i_concept.png'),
   'https://jason111nn.github.io/og-image.jpg'
 ]
 

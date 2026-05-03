@@ -2,6 +2,7 @@
 
 /* 在這裡定義你的自定義變數，v4 會自動生成對應的 utility class */
 @theme {
+  --font-sans: "Noto Sans TC", ui-sans-serif, system-ui, sans-serif;
   --color-morandi-bg: #F5F5DC;
   --color-morandi-blue: #A7B1B5;
   --color-morandi-gold: #B6A48D;
@@ -18,7 +19,7 @@
 /* 確保基礎設定正確 */
 @layer base {
   html, body {
-    @apply m-0 p-0;
+    @apply m-0 p-0 font-sans antialiased;
     background-color: var(--color-morandi-bg);
   }
 }
