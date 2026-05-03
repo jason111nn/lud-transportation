@@ -5,7 +5,6 @@ on:
     branches: [main]
   workflow_dispatch:
 
-# 這是關鍵：給予部署 GitHub Pages 所需的權限
 permissions:
   contents: read
   pages: write
