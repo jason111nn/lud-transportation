@@ -40,10 +40,13 @@
             </span>
             V2I Smart Traffic Infrastructure
           </div>
-          <h1 class="text-5xl md:text-8xl font-black text-white leading-[1.1] tracking-tighter">
-            智慧預警<br/><span class="text-[#4A677D]">LUD 系統</span>
+          <h1 class="text-4xl md:text-6xl font-black text-white leading-[1.1] tracking-tighter">
+            低頭顯示器<br/><span class="text-[#4A677D]">交通號誌提醒系統</span>
           </h1>
-          <p class="text-lg md:text-xl text-gray-400 font-medium leading-relaxed max-w-xl">
+          <p class="text-lg md:text-xl font-bold text-gray-400 leading-[1.1] tracking-tighter">
+            智慧預警 - LUD 系統
+          </p>
+          <p class="text-lg md:text-xl text-gray-600 font-medium leading-relaxed max-w-xl">
             將傳統交通號誌「主動化」。透過低功耗藍牙 (BLE) 廣播技術，為低頭族打造零延遲的安全防線，有效解決路口起步延遲問題。
           </p>
           <div class="flex flex-wrap gap-4 items-start">
